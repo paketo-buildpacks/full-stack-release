@@ -73,7 +73,7 @@ jobs:
         relevant_usns: usns
         all_usns: ${{ steps.get-usns.outputs.usn_path }}
         release_version: ${{ env.TAG }}
-        stack: base
+        stack: full
 
     - name: Commit USNs
       id: commit
