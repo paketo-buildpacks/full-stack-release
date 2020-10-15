@@ -1,0 +1,49 @@
+name: Check USNs
+on:
+  workflow_dispatch: {}
+  repository_dispatch:
+    types: [new-usn]
+
+jobs:
+  check-usns:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Get USN List
+      run: |
+        curl -sL -u 'core-deps-ci-bot:${{ secrets.CORE_DEPS_CI_BOT_GITHUB_TOKEN }}' \
+        api.github.com/repos/paketo-buildpacks/stack-usns/contents/usns | \
+        jq -r '.content' | base64 --decode > full-usn-list
+
+    - name: Update USNs
+      uses: paketo-buildpacks/stacks/actions/usn-update@main
+      with:
+        build_receipt: build-receipt
+        run_receipt: run-receipt
+        full_usn_list: full-usn-list
+        relevant_usn_list: usns
+
+    - name: Commit USNS
+      id: commit
+      run: |
+        if ! git diff --quiet usns; then
+          git config user.name "Core Deps"
+          git config user.email coredependencies@vmware.com
+          git add usns
+          git commit -m 'Add new USNs'
+          git push
+
+          echo ::set-output name=UPDATED::true
+        fi
+
+    - name: Trigger Release
+      if: steps.commit.outputs.UPDATED
+      uses: paketo-buildpacks/github-config/actions/dispatch@main
+      with:
+        repos: paketo-buildpacks/stacks
+        token: ${{ secrets.CORE_DEPS_CI_BOT_GITHUB_TOKEN }}
+        event: new-full-usn
+        payload: '{}'
+

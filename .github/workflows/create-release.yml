@@ -1,0 +1,103 @@
+name: Create Release
+on:
+  repository_dispatch:
+    types: [receipt-update]
+  workflow_dispatch:
+    inputs:
+      TAG:
+        required: true
+
+env:
+  TAG: ${{ github.event.client_payload.tag }}
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set Env Vars
+      run: |
+        if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+          echo "TAG=${{ github.event.inputs.TAG }}" >> $GITHUB_ENV
+        fi
+
+    - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      with:
+        version: '270.0.0'
+        service_account_key: ${{ secrets.TANZU_GCR_PUSH_KEY }}
+
+    - name: Configure docker gcloud auth
+      run: gcloud auth configure-docker
+
+    - name: Get Image Refs
+      id: image-refs
+      shell: bash --noprofile --norc -eo pipefail {0}
+      run: |
+        run_base_sha="$(skopeo inspect docker://coredeps/run-rc:"${TAG}"-full | jq .Digest -r)"
+        run_cnb_sha="$(skopeo inspect docker://coredeps/run-rc:"${TAG}"-full-cnb | jq .Digest -r)"
+        build_base_sha="$(skopeo inspect docker://coredeps/build-rc:"${TAG}"-full | jq .Digest -r)"
+        build_cnb_sha="$(skopeo inspect docker://coredeps/build-rc:"${TAG}"-full-cnb | jq .Digest -r)"
+
+        echo "::set-output name=run_base_sha::${run_base_sha}"
+        echo "::set-output name=run_cnb_sha::${run_cnb_sha}"
+        echo "::set-output name=build_base_sha::${build_base_sha}"
+        echo "::set-output name=build_cnb_sha::${build_cnb_sha}"
+
+    - name: Generate receipt diffs
+      id: receipt
+      uses: paketo-buildpacks/stacks/actions/receipt-diff@main
+      with:
+        repo: ${{ github.repository }}
+        user: core-deps-ci-bot
+        token: ${{ secrets.CORE_DEPS_CI_BOT_GITHUB_TOKEN }}
+
+    - name: Get USN List
+      id: get-usns
+      run: |
+        curl -sL api.github.com/repos/paketo-buildpacks/stack-usns/contents/usns | \
+        jq -r '.content' | base64 --decode > full-usn-list
+        echo "::set-output name=usn_path::full-usn-list"
+
+    - name: Create Release Notes
+      id: create-release-notes
+      uses: paketo-buildpacks/stacks/actions/release-notes@main
+      with:
+        build_base_image: "coredeps/build-rc@${{ steps.image-refs.outputs.build_base_sha }}"
+        build_cnb_image: "coredeps/build-rc@${{ steps.image-refs.outputs.build_cnb_sha }}"
+        run_cnb_image: "coredeps/run-rc@${{ steps.image-refs.outputs.run_cnb_sha }}"
+        run_base_image: "coredeps/run-rc@${{ steps.image-refs.outputs.run_base_sha }}"
+        build_receipt_diff: ${{ steps.receipt.outputs.build_diff }}
+        run_receipt_diff: ${{ steps.receipt.outputs.run_diff }}
+        relevant_usns: usns
+        all_usns: ${{ steps.get-usns.outputs.usn_path }}
+        release_version: ${{ env.TAG }}
+        stack: base
+
+    - name: Commit USNs
+      id: commit
+      run: |
+        publish_sha=${{ github.sha }}
+        if ! git diff --quiet usns; then
+          git config user.name "Core Deps"
+          git config user.email coredependencies@vmware.com
+          git add usns
+          git commit -m 'Update USNs'
+          git push
+
+          publish_sha="$(git log -1 --format=format:%H)"
+        fi
+
+        echo "::set-output name=sha::${publish_sha}"
+
+    - name: Create Release
+      uses: paketo-buildpacks/github-config/actions/release/create@main
+      with:
+        repo: ${{ github.repository }}
+        token: ${{ secrets.CORE_DEPS_CI_BOT_GITHUB_TOKEN }}
+        tag_name: ${{ env.TAG }}
+        target_commitish: ${{ steps.commit.outputs.sha }}
+        name: ${{ env.TAG }}
+        body: ${{ steps.create-release-notes.outputs.release_body }}
+        draft: false
