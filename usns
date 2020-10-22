@@ -1,1 +1,10 @@
-[{"title":"USN-4593-1: FreeType vulnerability","release":"0.0.3"},{"title":"USN-4581-1: Python vulnerability","release":"0.0.1"}]
+[
+    {
+        "title": "USN-4593-1: FreeType vulnerability",
+        "release": "0.0.3"
+    },
+    {
+        "title": "USN-4581-1: Python vulnerability",
+        "release": "0.0.1"
+    }
+]
