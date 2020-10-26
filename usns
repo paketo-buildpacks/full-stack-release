@@ -1,7 +1,7 @@
 [
     {
         "title": "USN-4602-1: Perl vulnerabilities",
-        "release": "unreleased"
+        "release": "0.0.4"
     },
     {
         "title": "USN-4593-1: FreeType vulnerability",
