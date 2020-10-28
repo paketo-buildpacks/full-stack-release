@@ -17,7 +17,7 @@ ii  binutils-x86-64-linux-gnu          2.30-21ubuntu1~18.04.4              amd64
 ii  bsdutils                           1:2.31.1-0.4ubuntu3.7               amd64        basic utilities from 4.4BSD-Lite
 ii  busybox-initramfs                  1:1.27.2-2ubuntu3.3                 amd64        Standalone shell setup for initramfs
 ii  bzip2                              1.0.6-8.1ubuntu0.2                  amd64        high-quality block-sorting file compressor - utilities
-ii  ca-certificates                    20190110~18.04.1                    all          Common CA certificates
+ii  ca-certificates                    20201027ubuntu0.18.04.1             all          Common CA certificates
 ii  console-setup                      1.178ubuntu2.9                      all          console font and keymap setup program
 ii  console-setup-linux                1.178ubuntu2.9                      all          Linux specific part of console-setup
 ii  coreutils                          8.28-1ubuntu1                       amd64        GNU core utilities
@@ -30,7 +30,7 @@ ii  debianutils                        4.8.4                               amd64
 ii  dh-python                          3.20180325ubuntu2                   all          Debian helper tools for packaging Python libraries and applications
 ii  diffutils                          1:3.6-1                             amd64        File comparison utilities
 ii  dirmngr                            2.2.4-1ubuntu1.3                    amd64        GNU privacy guard - network certificate management service
-ii  distro-info-data                   0.37ubuntu0.7                       all          information about the distributions' releases (data files)
+ii  distro-info-data                   0.37ubuntu0.8                       all          information about the distributions' releases (data files)
 ii  dnsutils                           1:9.11.3+dfsg-1ubuntu1.13           amd64        Clients provided with BIND
 ii  dpkg                               1.19.0.5ubuntu2.3                   amd64        Debian package management system
 ii  dpkg-dev                           1.19.0.5ubuntu2.3                   all          Debian package development tools
@@ -547,7 +547,7 @@ ii  sed                                4.4-2                               amd64
 ii  sensible-utils                     0.0.12                              all          Utilities for sensible alternative selection
 ii  shared-mime-info                   1.9-2                               amd64        FreeDesktop.org shared MIME database and spec
 ii  subversion                         1.9.7-4ubuntu1                      amd64        Advanced version control system
-ii  sudo                               1.8.21p2-3ubuntu1.2                 amd64        Provide limited super user privileges to specific users
+ii  sudo                               1.8.21p2-3ubuntu1.3                 amd64        Provide limited super user privileges to specific users
 ii  systemd                            237-3ubuntu10.42                    amd64        system and service manager
 ii  systemd-sysv                       237-3ubuntu10.42                    amd64        system and service manager - SysV links
 ii  sysvinit-utils                     2.88dsf-59.10ubuntu1                amd64        System-V-like utilities

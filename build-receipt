@@ -21,7 +21,7 @@ ii  build-essential                    12.4ubuntu1                         amd64
 ii  busybox-initramfs                  1:1.27.2-2ubuntu3.3                 amd64        Standalone shell setup for initramfs
 ii  bzip2                              1.0.6-8.1ubuntu0.2                  amd64        high-quality block-sorting file compressor - utilities
 ii  bzr                                2.7.0+bzr6622-10                    all          easy to use distributed version control system
-ii  ca-certificates                    20190110~18.04.1                    all          Common CA certificates
+ii  ca-certificates                    20201027ubuntu0.18.04.1             all          Common CA certificates
 ii  cmake                              3.10.2-1ubuntu2.18.04.1             amd64        cross-platform, open-source make system
 ii  cmake-data                         3.10.2-1ubuntu2.18.04.1             all          CMake data files (modules, templates and documentation)
 ii  comerr-dev:amd64                   2.1-1.44.1-1ubuntu1.3               amd64        common error description library - headers and static libraries
@@ -39,7 +39,7 @@ ii  debianutils                        4.8.4                               amd64
 ii  dh-python                          3.20180325ubuntu2                   all          Debian helper tools for packaging Python libraries and applications
 ii  diffutils                          1:3.6-1                             amd64        File comparison utilities
 ii  dirmngr                            2.2.4-1ubuntu1.3                    amd64        GNU privacy guard - network certificate management service
-ii  distro-info-data                   0.37ubuntu0.7                       all          information about the distributions' releases (data files)
+ii  distro-info-data                   0.37ubuntu0.8                       all          information about the distributions' releases (data files)
 ii  dnsutils                           1:9.11.3+dfsg-1ubuntu1.13           amd64        Clients provided with BIND
 ii  dpkg                               1.19.0.5ubuntu2.3                   amd64        Debian package management system
 ii  dpkg-dev                           1.19.0.5ubuntu2.3                   all          Debian package development tools
@@ -658,7 +658,7 @@ ii  sed                                4.4-2                               amd64
 ii  sensible-utils                     0.0.12                              all          Utilities for sensible alternative selection
 ii  shared-mime-info                   1.9-2                               amd64        FreeDesktop.org shared MIME database and spec
 ii  subversion                         1.9.7-4ubuntu1                      amd64        Advanced version control system
-ii  sudo                               1.8.21p2-3ubuntu1.2                 amd64        Provide limited super user privileges to specific users
+ii  sudo                               1.8.21p2-3ubuntu1.3                 amd64        Provide limited super user privileges to specific users
 ii  sysstat                            11.6.1-1ubuntu0.1                   amd64        system performance tools for Linux
 ii  systemd                            237-3ubuntu10.42                    amd64        system and service manager
 ii  systemd-sysv                       237-3ubuntu10.42                    amd64        system and service manager - SysV links
