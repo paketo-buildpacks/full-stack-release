@@ -154,9 +154,9 @@ ii  libbsd0:amd64                      0.8.7-1ubuntu0.1                    amd64
 ii  libbz2-1.0:amd64                   1.0.6-8.1ubuntu0.2                  amd64        high-quality block-sorting file compressor library - runtime
 ii  libbz2-dev:amd64                   1.0.6-8.1ubuntu0.2                  amd64        high-quality block-sorting file compressor library - development
 ii  libc-bin                           2.27-3ubuntu1.2                     amd64        GNU C Library: Binaries
-ii  libc-dev-bin                       2.27-3ubuntu1.2                     amd64        GNU C Library: Development binaries
-ii  libc6:amd64                        2.27-3ubuntu1.2                     amd64        GNU C Library: Shared libraries
-ii  libc6-dev:amd64                    2.27-3ubuntu1.2                     amd64        GNU C Library: Development Libraries and Header Files
+ii  libc-dev-bin                       2.27-3ubuntu1.3                     amd64        GNU C Library: Development binaries
+ii  libc6:amd64                        2.27-3ubuntu1.3                     amd64        GNU C Library: Shared libraries
+ii  libc6-dev:amd64                    2.27-3ubuntu1.3                     amd64        GNU C Library: Development Libraries and Header Files
 ii  libcairo-gobject2:amd64            1.15.10-2ubuntu0.1                  amd64        Cairo 2D vector graphics library (GObject library)
 ii  libcairo-script-interpreter2:amd64 1.15.10-2ubuntu0.1                  amd64        Cairo 2D vector graphics library (script interpreter)
 ii  libcairo2:amd64                    1.15.10-2ubuntu0.1                  amd64        Cairo 2D vector graphics library
@@ -492,7 +492,7 @@ ii  libswresample-dev:amd64            7:3.4.8-0ubuntu0.2                  amd64
 ii  libswresample2:amd64               7:3.4.8-0ubuntu0.2                  amd64        FFmpeg library for audio resampling, rematrixing etc. - runtime files
 ii  libsysfs-dev:amd64                 2.1.0+repack-4build1                amd64        interface library to sysfs - development files
 ii  libsysfs2:amd64                    2.1.0+repack-4build1                amd64        interface library to sysfs
-ii  libsystemd0:amd64                  237-3ubuntu10.42                    amd64        systemd utility library
+ii  libsystemd0:amd64                  237-3ubuntu10.43                    amd64        systemd utility library
 ii  libtasn1-6:amd64                   4.13-2                              amd64        Manage ASN.1 structures (runtime)
 ii  libtasn1-6-dev:amd64               4.13-2                              amd64        Manage ASN.1 structures (development)
 ii  libterm-ui-perl                    0.46-1                              all          Term::ReadLine UI made easy
@@ -514,7 +514,7 @@ ii  libtirpc1:amd64                    0.2.5-1.2ubuntu0.1                  amd64
 ii  libtsan0:amd64                     8.4.0-1ubuntu1~18.04                amd64        ThreadSanitizer -- a Valgrind-based detector of data races (runtime)
 ii  libtwolame0:amd64                  0.3.13-3                            amd64        MPEG Audio Layer 2 encoding library
 ii  libubsan0:amd64                    7.5.0-3ubuntu1~18.04                amd64        UBSan -- undefined behaviour sanitizer (runtime)
-ii  libudev1:amd64                     237-3ubuntu10.42                    amd64        libudev shared library
+ii  libudev1:amd64                     237-3ubuntu10.43                    amd64        libudev shared library
 ii  libunbound2:amd64                  1.6.7-1ubuntu2.3                    amd64        library implementing DNS resolution and validation
 ii  libunistring2:amd64                0.9.9-0ubuntu2                      amd64        Unicode string library for C
 ii  libunwind-dev:amd64                1.2.1-8                             amd64        library to determine the call-chain of a program - development
@@ -533,7 +533,7 @@ ii  libvorbisenc2:amd64                1.3.5-4.2                           amd64
 ii  libvpx-dev:amd64                   1.7.0-3ubuntu0.18.04.1              amd64        VP8 and VP9 video codec (development files)
 ii  libvpx5:amd64                      1.7.0-3ubuntu0.18.04.1              amd64        VP8 and VP9 video codec (shared library)
 ii  libwavpack1:amd64                  5.1.0-2ubuntu1.4                    amd64        audio codec (lossy and lossless) - library
-ii  libwbclient0:amd64                 2:4.7.6+dfsg~ubuntu-0ubuntu2.20     amd64        Samba winbind client library
+ii  libwbclient0:amd64                 2:4.7.6+dfsg~ubuntu-0ubuntu2.21     amd64        Samba winbind client library
 ii  libwebp6:amd64                     0.6.1-2                             amd64        Lossy compression of digital photographic images.
 ii  libwebpmux3:amd64                  0.6.1-2                             amd64        Lossy compression of digital photographic images.
 ii  libwind0-heimdal:amd64             7.5.0+dfsg-1                        amd64        Heimdal Kerberos - stringprep implementation
@@ -590,7 +590,7 @@ ii  libzvbi-common                     0.2.35-13                           all  
 ii  libzvbi0:amd64                     0.2.35-13                           amd64        Vertical Blanking Interval decoder (VBI) - runtime files
 ii  linux-base                         4.5ubuntu1.2                        all          Linux image base package
 ii  linux-libc-dev:amd64               4.15.0-122.124                      amd64        Linux Kernel Headers for development
-ii  locales                            2.27-3ubuntu1.2                     all          GNU C Library: National Language (locale) data [support]
+ii  locales                            2.27-3ubuntu1.3                     all          GNU C Library: National Language (locale) data [support]
 ii  lockfile-progs                     0.1.17build1                        amd64        Programs for locking and unlocking files and mailboxes
 ii  login                              1:4.5-1ubuntu2                      amd64        system login tools
 ii  lsb-base                           9.20170808ubuntu1                   all          Linux Standard Base init script functionality
@@ -604,7 +604,7 @@ ii  mercurial                          4.5.3-1ubuntu2.1                    amd64
 ii  mercurial-common                   4.5.3-1ubuntu2.1                    all          easy-to-use, scalable distributed version control system (common files)
 ii  mime-support                       3.60ubuntu1                         all          MIME files 'mime.types' & 'mailcap', and support programs
 ii  mount                              2.31.1-0.4ubuntu3.7                 amd64        tools for mounting and manipulating filesystems
-ii  multiarch-support                  2.27-3ubuntu1.2                     amd64        Transitional package to ensure multiarch compatibility
+ii  multiarch-support                  2.27-3ubuntu1.3                     amd64        Transitional package to ensure multiarch compatibility
 ii  ncurses-base                       6.1-1ubuntu1.18.04                  all          basic terminal type definitions
 ii  ncurses-bin                        6.1-1ubuntu1.18.04                  amd64        terminal-related programs and man pages
 ii  net-tools                          1.60+git20161116.90da8a0-1ubuntu1   amd64        NET-3 networking toolkit
@@ -660,8 +660,8 @@ ii  shared-mime-info                   1.9-2                               amd64
 ii  subversion                         1.9.7-4ubuntu1                      amd64        Advanced version control system
 ii  sudo                               1.8.21p2-3ubuntu1.3                 amd64        Provide limited super user privileges to specific users
 ii  sysstat                            11.6.1-1ubuntu0.1                   amd64        system performance tools for Linux
-ii  systemd                            237-3ubuntu10.42                    amd64        system and service manager
-ii  systemd-sysv                       237-3ubuntu10.42                    amd64        system and service manager - SysV links
+ii  systemd                            237-3ubuntu10.43                    amd64        system and service manager
+ii  systemd-sysv                       237-3ubuntu10.43                    amd64        system and service manager - SysV links
 ii  sysvinit-utils                     2.88dsf-59.10ubuntu1                amd64        System-V-like utilities
 ii  tar                                1.29b-2ubuntu0.1                    amd64        GNU version of the tar archiving utility
 ii  ttf-dejavu-core                    2.37-1                              all          transitional dummy package
@@ -671,7 +671,7 @@ ii  ubuntu-keyring                     2018.09.18.1~18.04.0                all  
 ii  ubuntu-minimal                     1.417.5                             amd64        Minimal core of Ubuntu
 ii  ubuntu-mono                        16.10+18.04.20181005-0ubuntu1       all          Ubuntu Mono Icon theme
 ii  ucf                                3.0038                              all          Update Configuration File(s): preserve user changes to config files
-ii  udev                               237-3ubuntu10.42                    amd64        /dev/ and hotplug management daemon
+ii  udev                               237-3ubuntu10.43                    amd64        /dev/ and hotplug management daemon
 ii  unixodbc                           2.3.4-1.1ubuntu3                    amd64        Basic ODBC tools
 ii  unixodbc-dev:amd64                 2.3.4-1.1ubuntu3                    amd64        ODBC libraries for UNIX (development files)
 ii  unzip                              6.0-21ubuntu1                       amd64        De-archiver for .zip files
