@@ -1,18 +1,18 @@
 [
     {
         "title": "USN-4608-1: ca-certificates update",
-        "release": "0.0.5"
+        "release": "0.0.94"
     },
     {
         "title": "USN-4602-1: Perl vulnerabilities",
-        "release": "0.0.4"
+        "release": "0.0.94"
     },
     {
         "title": "USN-4593-1: FreeType vulnerability",
-        "release": "0.0.3"
+        "release": "0.0.91"
     },
     {
         "title": "USN-4581-1: Python vulnerability",
-        "release": "0.0.1"
+        "release": "0.0.87"
     }
 ]
