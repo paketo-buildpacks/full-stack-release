@@ -1,7 +1,7 @@
 [
     {
         "title": "USN-4624-1: libexif vulnerability",
-        "release": "unreleased"
+        "release": "1.0.3"
     },
     {
         "title": "USN-4608-1: ca-certificates update",
