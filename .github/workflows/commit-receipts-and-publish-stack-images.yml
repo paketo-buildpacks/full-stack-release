@@ -108,6 +108,26 @@ jobs:
 
         sudo skopeo copy "docker://${RUN_CNB_IMAGE}" "docker://gcr.io/paketo-buildpacks/run:full-cnb"
 
+    - name: Publish Cloudfoundry Images
+      if: steps.commit.outputs.PUBLISH
+      run: |
+        version="${{ steps.publish.outputs.version }}"
+
+        docker login -u ${{ secrets.CLOUDFOUNDRY_DOCKERHUB_USERNAME }} --password-stdin \
+          < <(echo "${{ secrets.CLOUDFOUNDRY_DOCKERHUB_PASSWORD }}")
+
+        sudo skopeo copy "docker://${BUILD_BASE_IMAGE}" "docker://cloudfoundry/build:full"
+        sudo skopeo copy "docker://${BUILD_BASE_IMAGE}" "docker://cloudfoundry/build:$version-full"
+
+        sudo skopeo copy "docker://${BUILD_CNB_IMAGE}" "docker://cloudfoundry/build:full-cnb"
+        sudo skopeo copy "docker://${BUILD_CNB_IMAGE}" "docker://cloudfoundry/build:$version-full-cnb"
+
+        sudo skopeo copy "docker://${RUN_BASE_IMAGE}" "docker://cloudfoundry/run:full"
+        sudo skopeo copy "docker://${RUN_BASE_IMAGE}" "docker://cloudfoundry/run:$version-full"
+
+        sudo skopeo copy "docker://${RUN_CNB_IMAGE}" "docker://cloudfoundry/run:full-cnb"
+        sudo skopeo copy "docker://${RUN_CNB_IMAGE}" "docker://cloudfoundry/run:$version-full-cnb"
+
     - name: Trigger Release
       if: steps.commit.outputs.PUBLISH
       uses: paketo-buildpacks/github-config/actions/dispatch@main
