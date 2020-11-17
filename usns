@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-4635-1: Kerberos Vulnerabilities vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-4624-1: libexif vulnerability",
         "release": "1.0.3"
     },
