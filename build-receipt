@@ -153,7 +153,7 @@ ii  libblkid1:amd64                    2.31.1-0.4ubuntu3.7                 amd64
 ii  libbsd0:amd64                      0.8.7-1ubuntu0.1                    amd64        utility functions from BSD systems - shared library
 ii  libbz2-1.0:amd64                   1.0.6-8.1ubuntu0.2                  amd64        high-quality block-sorting file compressor library - runtime
 ii  libbz2-dev:amd64                   1.0.6-8.1ubuntu0.2                  amd64        high-quality block-sorting file compressor library - development
-ii  libc-bin                           2.27-3ubuntu1.2                     amd64        GNU C Library: Binaries
+ii  libc-bin                           2.27-3ubuntu1.3                     amd64        GNU C Library: Binaries
 ii  libc-dev-bin                       2.27-3ubuntu1.3                     amd64        GNU C Library: Development binaries
 ii  libc6:amd64                        2.27-3ubuntu1.3                     amd64        GNU C Library: Shared libraries
 ii  libc6-dev:amd64                    2.27-3ubuntu1.3                     amd64        GNU C Library: Development Libraries and Header Files
