@@ -1,10 +1,6 @@
 [
     {
         "title": "USN-4635-1: Kerberos vulnerability",
-        "release": "unreleased"
-    },
-    {
-        "title": "USN-4635-1: Kerberos Vulnerabilities vulnerability",
         "release": "1.0.5"
     },
     {
