@@ -1,7 +1,7 @@
 [
     {
         "title": "USN-4667-1: APT vulnerability",
-        "release": "unreleased"
+        "release": "1.0.11"
     },
     {
         "title": "USN-4665-1: curl vulnerabilities",
