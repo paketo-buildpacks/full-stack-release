@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-4670-1: ImageMagick vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-4667-1: APT vulnerability",
         "release": "1.0.11"
     },
