@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-4672-1: unzip vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-4670-1: ImageMagick vulnerabilities",
         "release": "unreleased"
     },
