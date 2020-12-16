@@ -110,19 +110,19 @@ jobs:
         sudo skopeo copy "docker://${BUILD_BASE_IMAGE}" "docker://paketobuildpacks/build:${version}-full"
 
         docker push "paketobuildpacks/build:full-cnb"
-        sudo skopeo copy "paketobuildpacks/build:full-cnb" "docker://paketobuildpacks/build:full-cnb-cf"
-        sudo skopeo copy "paketobuildpacks/build:full-cnb" "docker://paketobuildpacks/build:${version}-full-cnb"
+        sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://paketobuildpacks/build:full-cnb-cf"
+        sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://paketobuildpacks/build:${version}-full-cnb"
 
         sudo skopeo copy "docker://${RUN_BASE_IMAGE}" "docker://paketobuildpacks/run:full"
         sudo skopeo copy "docker://${RUN_BASE_IMAGE}" "docker://paketobuildpacks/run:full-cf"
         sudo skopeo copy "docker://${RUN_BASE_IMAGE}" "docker://paketobuildpacks/run:${version}-full"
 
         docker push "paketobuildpacks/run:full-cnb"
-        sudo skopeo copy "paketobuildpacks/run:full-cnb" "docker://paketobuildpacks/run:full-cnb-cf"
-        sudo skopeo copy "paketobuildpacks/run:full-cnb" "docker://paketobuildpacks/run:${version}-full-cnb"
+        sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://paketobuildpacks/run:full-cnb-cf"
+        sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://paketobuildpacks/run:${version}-full-cnb"
 
-        sudo skopeo copy "paketobuildpacks/run:full-cnb" "docker://gcr.io/paketo-buildpacks/run:full-cnb"
-        sudo skopeo copy "paketobuildpacks/run:full-cnb" "docker://gcr.io/paketo-buildpacks/run:full-cnb-cf"
+        sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://gcr.io/paketo-buildpacks/run:full-cnb"
+        sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://gcr.io/paketo-buildpacks/run:full-cnb-cf"
 
     - name: Publish Cloudfoundry Images
       if: steps.commit.outputs.PUBLISH
@@ -135,14 +135,14 @@ jobs:
         sudo skopeo copy "docker://${BUILD_BASE_IMAGE}" "docker://cloudfoundry/build:full"
         sudo skopeo copy "docker://${BUILD_BASE_IMAGE}" "docker://cloudfoundry/build:${version}-full"
 
-        sudo skopeo copy "paketobuildpacks/build:full-cnb" "docker://cloudfoundry/build:full-cnb"
-        sudo skopeo copy "paketobuildpacks/build:full-cnb" "docker://cloudfoundry/build:${version}-full-cnb"
+        sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://cloudfoundry/build:full-cnb"
+        sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://cloudfoundry/build:${version}-full-cnb"
 
         sudo skopeo copy "docker://${RUN_BASE_IMAGE}" "docker://cloudfoundry/run:full"
         sudo skopeo copy "docker://${RUN_BASE_IMAGE}" "docker://cloudfoundry/run:${version}-full"
 
-        sudo skopeo copy "paketobuildpacks/run:full-cnb" "docker://cloudfoundry/run:full-cnb"
-        sudo skopeo copy "paketobuildpacks/run:full-cnb" "docker://cloudfoundry/run:${version}-full-cnb"
+        sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://cloudfoundry/run:full-cnb"
+        sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://cloudfoundry/run:${version}-full-cnb"
 
     - name: Trigger Release
       if: steps.commit.outputs.PUBLISH
