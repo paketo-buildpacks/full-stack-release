@@ -1,11 +1,11 @@
 [
     {
         "title": "USN-4672-1: unzip vulnerabilities",
-        "release": "unreleased"
+        "release": "1.0.13"
     },
     {
         "title": "USN-4670-1: ImageMagick vulnerabilities",
-        "release": "unreleased"
+        "release": "1.0.13"
     },
     {
         "title": "USN-4667-1: APT vulnerability",
