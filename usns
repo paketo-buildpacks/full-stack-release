@@ -1,7 +1,7 @@
 [
     {
         "title": "USN-4673-1: libproxy vulnerability",
-        "release": "unreleased"
+        "release": "1.0.14"
     },
     {
         "title": "USN-4672-1: unzip vulnerabilities",
