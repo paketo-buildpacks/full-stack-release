@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-4676-1: OpenEXR vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-4673-1: libproxy vulnerability",
         "release": "1.0.14"
     },
