@@ -399,8 +399,8 @@ ii  liborc-0.4-0:amd64                 1:0.4.28-1                          amd64
 ii  liborc-0.4-dev                     1:0.4.28-1                          amd64        Library of Optimized Inner Loops Runtime Compiler (development headers)
 ii  liborc-0.4-dev-bin                 1:0.4.28-1                          amd64        Library of Optimized Inner Loops Runtime Compiler (development tools)
 ii  libossp-uuid16:amd64               1.6.2-1.5build4                     amd64        OSSP uuid ISO-C and C++ - shared library
-ii  libp11-kit-dev:amd64               0.23.9-2                            amd64        library for loading and coordinating access to PKCS#11 modules - development
-ii  libp11-kit0:amd64                  0.23.9-2                            amd64        library for loading and coordinating access to PKCS#11 modules - runtime
+ii  libp11-kit-dev:amd64               0.23.9-2ubuntu0.1                   amd64        library for loading and coordinating access to PKCS#11 modules - development
+ii  libp11-kit0:amd64                  0.23.9-2ubuntu0.1                   amd64        library for loading and coordinating access to PKCS#11 modules - runtime
 ii  libpam-cap:amd64                   1:2.25-1.2                          amd64        POSIX 1003.1e capabilities (PAM module)
 ii  libpam-modules:amd64               1.1.8-3.6ubuntu2.18.04.2            amd64        Pluggable Authentication Modules for PAM
 ii  libpam-modules-bin                 1.1.8-3.6ubuntu2.18.04.2            amd64        Pluggable Authentication Modules for PAM - helper binaries
