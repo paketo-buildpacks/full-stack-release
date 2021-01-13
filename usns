@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-4692-1: tar vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-4677-1: p11-kit vulnerabilities",
         "release": "1.0.16"
     },
