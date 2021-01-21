@@ -117,7 +117,7 @@ jobs:
 
           if [[ -n "${{ steps.get-package-diff.outputs.added-build-packages }}" ]] || [[ -n "${{ steps.get-package-diff.outputs.added-run-packages }}" ]]; then
             bumped_minor="$(($(echo $last_version | cut -d . -f 2) + 1))"
-            version="$( echo $last_version | cut -d . -f 1)".$bumped_minor."$( echo $last_version | cut -d . -f 3)"
+            version="$( echo $last_version | cut -d . -f 1)".$bumped_minor.0
           else
             bumped_patch="$(($(echo $last_version | cut -d . -f 3) + 1))"
             version="$( echo $last_version | cut -d . -f 1-2)".$bumped_patch
