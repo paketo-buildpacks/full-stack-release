@@ -32,6 +32,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
 
     - name: Set Env Vars
       run: |
@@ -82,6 +84,29 @@ jobs:
           echo ::set-output name=PUBLISH::true
         fi
 
+    - name: Get package diff
+      id: get-package-diff
+      uses: paketo-buildpacks/stacks/actions/get-package-diff@main
+      if: steps.commit.outputs.PUBLISH
+      with:
+        ref: ${{ github.sha }}
+
+    - name: Check for removed packages
+      if: steps.commit.outputs.PUBLISH
+      run: |
+        removed=false
+        if [[ -n "${{ steps.get-package-diff.outputs.removed-build-packages }}" ]]; then
+          echo "Packages removed from build image: ${{ steps.get-package-diff.outputs.removed-build-packages }}"
+          removed=true
+        fi
+        if [[ -n "${{ steps.get-package-diff.outputs.removed-run-packages }}" ]]; then
+          echo "Packages removed from run image: ${{ steps.get-package-diff.outputs.removed-run-packages }}"
+          removed=true
+        fi
+        if [[ "${removed}" == "true" ]]; then
+          exit 1
+        fi
+
     - name: Publish Images
       id: publish
       if: steps.commit.outputs.PUBLISH
@@ -89,8 +114,14 @@ jobs:
         version="${VERSION}"
         if [[ "${version}" == '' ]]; then
           last_version="$(curl -H 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/$GITHUB_REPOSITORY/tags | jq -r '.[0].name // "0.0.0"')"
-          bumped_patch="$(($(echo $last_version | cut -d . -f 3) + 1))"
-          version="$( echo $last_version | cut -d . -f 1-2)".$bumped_patch
+
+          if [[ -n "${{ steps.get-package-diff.outputs.added-build-packages }}" ]] || [[ -n "${{ steps.get-package-diff.outputs.added-run-packages }}" ]]; then
+            bumped_minor="$(($(echo $last_version | cut -d . -f 2) + 1))"
+            version="$( echo $last_version | cut -d . -f 1)".$bumped_minor."$( echo $last_version | cut -d . -f 3)"
+          else
+            bumped_patch="$(($(echo $last_version | cut -d . -f 3) + 1))"
+            version="$( echo $last_version | cut -d . -f 1-2)".$bumped_patch
+          fi
         fi
         echo "::set-output name=version::${version}"
 
