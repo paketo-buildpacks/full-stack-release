@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-4705-1: Sudo vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-4692-1: tar vulnerabilities",
         "release": "1.0.18"
     },
