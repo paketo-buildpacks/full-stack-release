@@ -110,8 +110,8 @@ ii  libatm1:amd64                      1:2.5.1-2build1                     amd64
 ii  libatomic1:amd64                   8.4.0-1ubuntu1~18.04                amd64        support library providing __atomic built-in functions
 ii  libattr1:amd64                     1:2.4.47-2build1                    amd64        Extended attribute shared library
 ii  libaudiofile1:amd64                0.3.6-4                             amd64        Open-source version of SGI's audiofile library
-ii  libaudit-common                    1:2.8.2-1ubuntu1                    all          Dynamic library for security auditing - common files
-ii  libaudit1:amd64                    1:2.8.2-1ubuntu1                    amd64        Dynamic library for security auditing
+ii  libaudit-common                    1:2.8.2-1ubuntu1.1                  all          Dynamic library for security auditing - common files
+ii  libaudit1:amd64                    1:2.8.2-1ubuntu1.1                  amd64        Dynamic library for security auditing
 ii  libavahi-client3:amd64             0.7-3.1ubuntu1.2                    amd64        Avahi client library
 ii  libavahi-common-data:amd64         0.7-3.1ubuntu1.2                    amd64        Avahi common data files
 ii  libavahi-common3:amd64             0.7-3.1ubuntu1.2                    amd64        Avahi common library
@@ -547,7 +547,7 @@ ii  sed                                4.4-2                               amd64
 ii  sensible-utils                     0.0.12                              all          Utilities for sensible alternative selection
 ii  shared-mime-info                   1.9-2                               amd64        FreeDesktop.org shared MIME database and spec
 ii  subversion                         1.9.7-4ubuntu1                      amd64        Advanced version control system
-ii  sudo                               1.8.21p2-3ubuntu1.3                 amd64        Provide limited super user privileges to specific users
+ii  sudo                               1.8.21p2-3ubuntu1.4                 amd64        Provide limited super user privileges to specific users
 ii  systemd                            237-3ubuntu10.44                    amd64        system and service manager
 ii  systemd-sysv                       237-3ubuntu10.44                    amd64        system and service manager - SysV links
 ii  sysvinit-utils                     2.88dsf-59.10ubuntu1                amd64        System-V-like utilities
