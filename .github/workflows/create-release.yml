@@ -45,13 +45,14 @@ jobs:
       with:
         repo: ${{ github.repository }}
         user: core-deps-ci-bot
-        token: ${{ secrets.CORE_DEPS_CI_BOT_GITHUB_TOKEN }}
+        token: ${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}
 
     - name: Get USN List
       id: get-usns
       run: |
-        curl -sL api.github.com/repos/paketo-buildpacks/stack-usns/contents/usns | \
-        jq -r '.content' | base64 --decode > full-usn-list
+        curl -sL --fail -u 'paketo-bot:${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}' \
+          api.github.com/repos/paketo-buildpacks/stack-usns/contents/usns | \
+          jq -r '.content' | base64 --decode > full-usn-list
         echo "::set-output name=usn_path::full-usn-list"
 
     - name: Create Release Notes
@@ -89,7 +90,7 @@ jobs:
       uses: paketo-buildpacks/github-config/actions/release/create@main
       with:
         repo: ${{ github.repository }}
-        token: ${{ secrets.CORE_DEPS_CI_BOT_GITHUB_TOKEN }}
+        token: ${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}
         tag_name: ${{ env.TAG }}
         target_commitish: ${{ steps.commit.outputs.sha }}
         name: ${{ env.TAG }}

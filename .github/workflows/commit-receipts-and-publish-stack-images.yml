@@ -180,7 +180,7 @@ jobs:
       uses: paketo-buildpacks/github-config/actions/dispatch@main
       with:
         repos: paketo-buildpacks/full-release
-        token: ${{ secrets.CORE_DEPS_CI_BOT_GITHUB_TOKEN }}
+        token: ${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}
         event: receipt-update
         payload: |
           {
