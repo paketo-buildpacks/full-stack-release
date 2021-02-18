@@ -1,7 +1,7 @@
 [
     {
         "title": "USN-4738-1: OpenSSL vulnerabilities",
-        "release": "unreleased"
+        "release": "1.1.5"
     },
     {
         "title": "USN-4719-1: ca-certificates update",
