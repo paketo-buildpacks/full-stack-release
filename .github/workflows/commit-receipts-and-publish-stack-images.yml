@@ -179,7 +179,7 @@ jobs:
       if: steps.commit.outputs.PUBLISH
       uses: paketo-buildpacks/github-config/actions/dispatch@main
       with:
-        repos: paketo-buildpacks/full-release
+        repos: paketo-buildpacks/full-stack-release
         token: ${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}
         event: receipt-update
         payload: |
