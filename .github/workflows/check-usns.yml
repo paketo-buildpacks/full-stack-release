@@ -11,6 +11,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Checkout Branch
+      uses: paketo-buildpacks/github-config/actions/pull-request/checkout-branch@main
+      with:
+        branch: automation/usns/update
+
     - name: Get USN List
       run: |
         curl -sL --fail -u 'paketo-bot:${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}' \
@@ -25,25 +30,24 @@ jobs:
         full_usn_list: full-usn-list
         relevant_usn_list: usns
 
-    - name: Commit USNS
+    - name: Commit
       id: commit
-      run: |
-        if ! git diff --quiet usns; then
-          git config user.name "Core Deps"
-          git config user.email coredependencies@vmware.com
-          git add usns
-          git commit -m 'Add new USNs'
-          git push
-
-          echo ::set-output name=UPDATED::true
-        fi
-
-    - name: Trigger Release
-      if: steps.commit.outputs.UPDATED
-      uses: paketo-buildpacks/github-config/actions/dispatch@main
+      uses: paketo-buildpacks/github-config/actions/pull-request/create-commit@main
       with:
-        repos: paketo-buildpacks/stacks
+        message: "Add new USNs"
+        pathspec: "usns"
+
+    - name: Push Branch
+      if: ${{ steps.commit.outputs.commit_sha != '' }}
+      uses: paketo-buildpacks/github-config/actions/pull-request/push-branch@main
+      with:
+        branch: automation/usns/update
+
+    - name: Open Pull Request
+      if: ${{ steps.commit.outputs.commit_sha != '' }}
+      uses: paketo-buildpacks/github-config/actions/pull-request/open@main
+      with:
         token: ${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}
-        event: new-full-usn
-        payload: '{}'
+        title: "Add new USNs"
+        branch: automation/usns/update
 
