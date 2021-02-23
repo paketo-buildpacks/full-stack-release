@@ -19,6 +19,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Checkout Branch
+      uses: paketo-buildpacks/github-config/actions/pull-request/checkout-branch@main
+      with:
+        branch: automation/usns/release
+
     - name: Set Env Vars
       run: |
         if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
@@ -70,29 +75,34 @@ jobs:
         release_version: ${{ env.TAG }}
         stack: full
 
-    - name: Commit USNs
-      id: commit
-      run: |
-        publish_sha=${{ github.sha }}
-        if ! git diff --quiet usns; then
-          git config user.name "Core Deps"
-          git config user.email coredependencies@vmware.com
-          git add usns
-          git commit -m 'Update USNs'
-          git push
-
-          publish_sha="$(git log -1 --format=format:%H)"
-        fi
-
-        echo "::set-output name=sha::${publish_sha}"
-
     - name: Create Release
       uses: paketo-buildpacks/github-config/actions/release/create@main
       with:
         repo: ${{ github.repository }}
         token: ${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}
         tag_name: ${{ env.TAG }}
-        target_commitish: ${{ steps.commit.outputs.sha }}
+        target_commitish: ${{ github.sha }}
         name: ${{ env.TAG }}
         body: ${{ steps.create-release-notes.outputs.release_body }}
         draft: false
+
+    - name: Commit
+      id: commit
+      uses: paketo-buildpacks/github-config/actions/pull-request/create-commit@main
+      with:
+        message: "Update USNs"
+        pathspec: "usns"
+
+    - name: Push Branch
+      if: ${{ steps.commit.outputs.commit_sha != '' }}
+      uses: paketo-buildpacks/github-config/actions/pull-request/push-branch@main
+      with:
+        branch: automation/usns/release
+
+    - name: Open Pull Request
+      if: ${{ steps.commit.outputs.commit_sha != '' }}
+      uses: paketo-buildpacks/github-config/actions/pull-request/open@main
+      with:
+        token: ${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}
+        title: "Update USNs"
+        branch: automation/usns/release

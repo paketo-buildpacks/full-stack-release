@@ -1,33 +1,16 @@
-name: Commit Receipts and Publish Stack Images
+name: Publish Stack Images
 on:
-  repository_dispatch:
-    types: [ new-stack-rc ]
+  push:
+    branches: [ main ]
+    paths: [ build-receipt , run-receipt ]
   workflow_dispatch:
     inputs:
-      RUN_BASE_IMAGE:
-        required: true
-      RUN_CNB_IMAGE:
-        required: true
-      BUILD_BASE_IMAGE:
-        required: true
-      BUILD_CNB_IMAGE:
-        required: true
       VERSION:
         required: false
         default: ''
-      FORCE_PUBLISH:
-        required: false
-        default: 'false'
-        description: 'Publish images even if there is no receipt diff'
-
-env:
-  RUN_BASE_IMAGE: ${{ github.event.client_payload.run_base_image }}
-  RUN_CNB_IMAGE: ${{ github.event.client_payload.run_cnb_image }}
-  BUILD_BASE_IMAGE: ${{ github.event.client_payload.build_base_image }}
-  BUILD_CNB_IMAGE: ${{ github.event.client_payload.build_cnb_image }}
 
 jobs:
-  commit-receipts-and-publish-stack-images:
+  publish-stack-images:
     runs-on: ubuntu-18.04
 
     steps:
@@ -38,12 +21,7 @@ jobs:
     - name: Set Env Vars
       run: |
         if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-          echo "RUN_BASE_IMAGE=${{ github.event.inputs.RUN_BASE_IMAGE }}" >> $GITHUB_ENV
-          echo "RUN_CNB_IMAGE=${{ github.event.inputs.RUN_CNB_IMAGE }}" >> $GITHUB_ENV
-          echo "BUILD_BASE_IMAGE=${{ github.event.inputs.BUILD_BASE_IMAGE }}" >> $GITHUB_ENV
-          echo "BUILD_CNB_IMAGE=${{ github.event.inputs.BUILD_CNB_IMAGE }}" >> $GITHUB_ENV
           echo "VERSION=${{ github.event.inputs.VERSION }}" >> $GITHUB_ENV
-          echo "FORCE_PUBLISH=${{ github.event.inputs.FORCE_PUBLISH }}" >> $GITHUB_ENV
         fi
 
     - uses: google-github-actions/setup-gcloud@master
@@ -59,40 +37,13 @@ jobs:
         docker login -u ${{ secrets.PAKETO_BUILDPACKS_DOCKER_USER }} --password-stdin \
           < <(echo "${{ secrets.PAKETO_BUILDPACKS_DOCKER_PASS }}")
 
-    - name: Generate image receipts
-      run: |
-        docker pull "${BUILD_BASE_IMAGE}"
-        docker pull "${BUILD_CNB_IMAGE}"
-        docker run "${BUILD_CNB_IMAGE}" dpkg -l > build-receipt
-
-        docker pull "${RUN_BASE_IMAGE}"
-        docker pull "${RUN_CNB_IMAGE}"
-        docker run "${RUN_CNB_IMAGE}" dpkg -l > run-receipt
-
-    - name: Commit receipts
-      id: commit
-      run: |
-        if ! git diff --quiet build-receipt run-receipt; then
-          git config user.name "Core Deps"
-          git config user.email coredependencies@vmware.com
-          git add build-receipt run-receipt
-          git commit -m 'Update receipts'
-          git push
-
-          echo ::set-output name=PUBLISH::true
-        elif [[ "${FORCE_PUBLISH}" == "true" ]]; then
-          echo ::set-output name=PUBLISH::true
-        fi
-
     - name: Get package diff
       id: get-package-diff
       uses: paketo-buildpacks/stacks/actions/get-package-diff@main
-      if: steps.commit.outputs.PUBLISH
       with:
         ref: ${{ github.sha }}
 
     - name: Check for removed packages
-      if: steps.commit.outputs.PUBLISH
       run: |
         removed=false
         if [[ -n "${{ steps.get-package-diff.outputs.removed-build-packages }}" ]]; then
@@ -109,7 +60,6 @@ jobs:
 
     - name: Publish Images
       id: publish
-      if: steps.commit.outputs.PUBLISH
       run: |
         version="${VERSION}"
         if [[ "${version}" == '' ]]; then
@@ -125,28 +75,34 @@ jobs:
         fi
         echo "::set-output name=version::${version}"
 
-        published_build_base_image="$(echo "${BUILD_BASE_IMAGE}" | sed 's/build-rc@/build@/')"
-        published_run_base_image="$(echo "${RUN_BASE_IMAGE}" | sed 's/run-rc@/run@/')"
+        build_base_image="$(cat build-base-image)"
+        run_base_image="$(cat run-base-image)"
 
-        echo "FROM ${BUILD_CNB_IMAGE}" | \
+        published_build_base_image="$(echo "$build_base_image" | sed 's/build-rc@/build@/')"
+        published_run_base_image="$(echo "$run_base_image" | sed 's/run-rc@/run@/')"
+
+        build_cnb_image="$(cat build-cnb-image)"
+        run_cnb_image="$(cat run-cnb-image)"
+
+        echo "FROM ${build_cnb_image}" | \
           docker build -t "paketobuildpacks/build:full-cnb" \
           --label "io.buildpacks.stack.metadata={\"base-image\": \"${published_build_base_image}\"}" -
 
-        echo "FROM ${RUN_CNB_IMAGE}" | \
+        echo "FROM ${run_cnb_image}" | \
           docker build -t "paketobuildpacks/run:full-cnb" \
           --label "io.buildpacks.stack.metadata={\"base-image\": \"${published_run_base_image}\"}" -
 
-        sudo skopeo copy "docker://${BUILD_BASE_IMAGE}" "docker://paketobuildpacks/build:full"
-        sudo skopeo copy "docker://${BUILD_BASE_IMAGE}" "docker://paketobuildpacks/build:full-cf"
-        sudo skopeo copy "docker://${BUILD_BASE_IMAGE}" "docker://paketobuildpacks/build:${version}-full"
+        sudo skopeo copy "docker://${build_base_image}" "docker://paketobuildpacks/build:full"
+        sudo skopeo copy "docker://${build_base_image}" "docker://paketobuildpacks/build:full-cf"
+        sudo skopeo copy "docker://${build_base_image}" "docker://paketobuildpacks/build:${version}-full"
 
         docker push "paketobuildpacks/build:full-cnb"
         sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://paketobuildpacks/build:full-cnb-cf"
         sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://paketobuildpacks/build:${version}-full-cnb"
 
-        sudo skopeo copy "docker://${RUN_BASE_IMAGE}" "docker://paketobuildpacks/run:full"
-        sudo skopeo copy "docker://${RUN_BASE_IMAGE}" "docker://paketobuildpacks/run:full-cf"
-        sudo skopeo copy "docker://${RUN_BASE_IMAGE}" "docker://paketobuildpacks/run:${version}-full"
+        sudo skopeo copy "docker://${run_base_image}" "docker://paketobuildpacks/run:full"
+        sudo skopeo copy "docker://${run_base_image}" "docker://paketobuildpacks/run:full-cf"
+        sudo skopeo copy "docker://${run_base_image}" "docker://paketobuildpacks/run:${version}-full"
 
         docker push "paketobuildpacks/run:full-cnb"
         sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://paketobuildpacks/run:full-cnb-cf"
@@ -156,27 +112,27 @@ jobs:
         sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://gcr.io/paketo-buildpacks/run:full-cnb-cf"
 
     - name: Publish Cloudfoundry Images
-      if: steps.commit.outputs.PUBLISH
       run: |
+        build_base_image="$(cat build-base-image)"
+        run_base_image="$(cat run-base-image)"
         version="${{ steps.publish.outputs.version }}"
 
         docker login -u ${{ secrets.CLOUDFOUNDRY_DOCKERHUB_USERNAME }} --password-stdin \
           < <(echo "${{ secrets.CLOUDFOUNDRY_DOCKERHUB_PASSWORD }}")
 
-        sudo skopeo copy "docker://${BUILD_BASE_IMAGE}" "docker://cloudfoundry/build:full"
-        sudo skopeo copy "docker://${BUILD_BASE_IMAGE}" "docker://cloudfoundry/build:${version}-full"
+        sudo skopeo copy "docker://${build_base_image}" "docker://cloudfoundry/build:full"
+        sudo skopeo copy "docker://${build_base_image}" "docker://cloudfoundry/build:${version}-full"
 
         sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://cloudfoundry/build:full-cnb"
         sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://cloudfoundry/build:${version}-full-cnb"
 
-        sudo skopeo copy "docker://${RUN_BASE_IMAGE}" "docker://cloudfoundry/run:full"
-        sudo skopeo copy "docker://${RUN_BASE_IMAGE}" "docker://cloudfoundry/run:${version}-full"
+        sudo skopeo copy "docker://${run_base_image}" "docker://cloudfoundry/run:full"
+        sudo skopeo copy "docker://${run_base_image}" "docker://cloudfoundry/run:${version}-full"
 
         sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://cloudfoundry/run:full-cnb"
         sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://cloudfoundry/run:${version}-full-cnb"
 
     - name: Trigger Release
-      if: steps.commit.outputs.PUBLISH
       uses: paketo-buildpacks/github-config/actions/dispatch@main
       with:
         repos: paketo-buildpacks/full-stack-release
@@ -186,4 +142,3 @@ jobs:
           {
             "tag": "${{ steps.publish.outputs.version }}"
           }
-
