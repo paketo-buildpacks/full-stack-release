@@ -49,7 +49,7 @@ jobs:
       uses: paketo-buildpacks/stacks/actions/receipt-diff@main
       with:
         repo: ${{ github.repository }}
-        user: core-deps-ci-bot
+        user: paketo-bot
         token: ${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}
 
     - name: Get USN List
