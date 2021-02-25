@@ -40,7 +40,7 @@ ii  debconf-i18n                       1.5.66ubuntu1                       all  
 ii  debianutils                        4.8.4                               amd64        Miscellaneous utilities specific to Debian
 ii  dh-python                          3.20180325ubuntu2                   all          Debian helper tools for packaging Python libraries and applications
 ii  diffutils                          1:3.6-1                             amd64        File comparison utilities
-ii  dirmngr                            2.2.4-1ubuntu1.3                    amd64        GNU privacy guard - network certificate management service
+ii  dirmngr                            2.2.4-1ubuntu1.4                    amd64        GNU privacy guard - network certificate management service
 ii  distro-info-data                   0.37ubuntu0.9                       all          information about the distributions' releases (data files)
 ii  dnsutils                           1:9.11.3+dfsg-1ubuntu1.14           amd64        Clients provided with BIND
 ii  dpkg                               1.19.0.5ubuntu2.3                   amd64        Debian package management system
@@ -70,17 +70,17 @@ ii  gir1.2-pango-1.0:amd64             1.40.14-1ubuntu0.1                  amd64
 ii  gir1.2-rsvg-2.0:amd64              2.40.20-2ubuntu0.2                  amd64        gir files for renderer library for SVG files
 ii  git                                1:2.17.1-1ubuntu0.7                 amd64        fast, scalable, distributed revision control system
 ii  git-man                            1:2.17.1-1ubuntu0.7                 all          fast, scalable, distributed revision control system (manual pages)
-ii  gnupg                              2.2.4-1ubuntu1.3                    amd64        GNU privacy guard - a free PGP replacement
-ii  gnupg-l10n                         2.2.4-1ubuntu1.3                    all          GNU privacy guard - localization files
-ii  gnupg-utils                        2.2.4-1ubuntu1.3                    amd64        GNU privacy guard - utility programs
+ii  gnupg                              2.2.4-1ubuntu1.4                    amd64        GNU privacy guard - a free PGP replacement
+ii  gnupg-l10n                         2.2.4-1ubuntu1.4                    all          GNU privacy guard - localization files
+ii  gnupg-utils                        2.2.4-1ubuntu1.4                    amd64        GNU privacy guard - utility programs
 ii  gnupg1                             1.4.22-3ubuntu2                     amd64        GNU privacy guard - a PGP implementation (deprecated "classic" version)
-ii  gpg                                2.2.4-1ubuntu1.3                    amd64        GNU Privacy Guard -- minimalist public key operations
-ii  gpg-agent                          2.2.4-1ubuntu1.3                    amd64        GNU privacy guard - cryptographic agent
-ii  gpg-wks-client                     2.2.4-1ubuntu1.3                    amd64        GNU privacy guard - Web Key Service client
-ii  gpg-wks-server                     2.2.4-1ubuntu1.3                    amd64        GNU privacy guard - Web Key Service server
-ii  gpgconf                            2.2.4-1ubuntu1.3                    amd64        GNU privacy guard - core configuration utilities
-ii  gpgsm                              2.2.4-1ubuntu1.3                    amd64        GNU privacy guard - S/MIME version
-ii  gpgv                               2.2.4-1ubuntu1.3                    amd64        GNU privacy guard - signature verification tool
+ii  gpg                                2.2.4-1ubuntu1.4                    amd64        GNU Privacy Guard -- minimalist public key operations
+ii  gpg-agent                          2.2.4-1ubuntu1.4                    amd64        GNU privacy guard - cryptographic agent
+ii  gpg-wks-client                     2.2.4-1ubuntu1.4                    amd64        GNU privacy guard - Web Key Service client
+ii  gpg-wks-server                     2.2.4-1ubuntu1.4                    amd64        GNU privacy guard - Web Key Service server
+ii  gpgconf                            2.2.4-1ubuntu1.4                    amd64        GNU privacy guard - core configuration utilities
+ii  gpgsm                              2.2.4-1ubuntu1.4                    amd64        GNU privacy guard - S/MIME version
+ii  gpgv                               2.2.4-1ubuntu1.4                    amd64        GNU privacy guard - signature verification tool
 ii  graphviz                           2.40.1-2                            amd64        rich set of graph drawing tools
 ii  grep                               3.1-2build1                         amd64        GNU grep, egrep and fgrep
 ii  gsfonts                            1:8.11+urwcyr1.0.7~pre44-4.4        all          Fonts for the Ghostscript interpreter(s)
@@ -329,9 +329,9 @@ ii  liblapack-dev:amd64                3.7.1-4ubuntu1                      amd64
 ii  liblapack3:amd64                   3.7.1-4ubuntu1                      amd64        Library of linear algebra routines 3 - shared version
 ii  liblcms2-2:amd64                   2.9-1ubuntu0.1                      amd64        Little CMS 2 color management library
 ii  liblcms2-dev:amd64                 2.9-1ubuntu0.1                      amd64        Little CMS 2 color management library development headers
-ii  libldap-2.4-2:amd64                2.4.45+dfsg-1ubuntu1.9              amd64        OpenLDAP libraries
-ii  libldap-common                     2.4.45+dfsg-1ubuntu1.9              all          OpenLDAP common files for libraries
-ii  libldap2-dev:amd64                 2.4.45+dfsg-1ubuntu1.9              amd64        OpenLDAP development libraries
+ii  libldap-2.4-2:amd64                2.4.45+dfsg-1ubuntu1.10             amd64        OpenLDAP libraries
+ii  libldap-common                     2.4.45+dfsg-1ubuntu1.10             all          OpenLDAP common files for libraries
+ii  libldap2-dev:amd64                 2.4.45+dfsg-1ubuntu1.10             amd64        OpenLDAP development libraries
 ii  liblocale-gettext-perl             1.07-3build2                        amd64        module using libc functions for internationalization in Perl
 ii  liblockfile-bin                    1.14-1.1                            amd64        support binaries for and cli utilities based on liblockfile
 ii  liblockfile-dev:amd64              1.14-1.1                            amd64        Development library for liblockfile
@@ -436,12 +436,12 @@ ii  libproxy1v5:amd64                  0.4.15-1ubuntu0.2                   amd64
 ii  libpsl5:amd64                      0.19.1-5build1                      amd64        Library for Public Suffix List (shared libraries)
 ii  libpthread-stubs0-dev:amd64        0.3-4                               amd64        pthread stubs not provided by native libc, development files
 ii  libpython-stdlib:amd64             2.7.15~rc1-1                        amd64        interactive high-level object-oriented language (default python version)
-ii  libpython2.7-minimal:amd64         2.7.17-1~18.04ubuntu1.2             amd64        Minimal subset of the Python language (version 2.7)
-ii  libpython2.7-stdlib:amd64          2.7.17-1~18.04ubuntu1.2             amd64        Interactive high-level object-oriented language (standard library, version 2.7)
+ii  libpython2.7-minimal:amd64         2.7.17-1~18.04ubuntu1.3             amd64        Minimal subset of the Python language (version 2.7)
+ii  libpython2.7-stdlib:amd64          2.7.17-1~18.04ubuntu1.3             amd64        Interactive high-level object-oriented language (standard library, version 2.7)
 ii  libpython3-stdlib:amd64            3.6.7-1~18.04                       amd64        interactive high-level object-oriented language (default python3 version)
-ii  libpython3.6:amd64                 3.6.9-1~18.04ubuntu1.3              amd64        Shared Python runtime library (version 3.6)
-ii  libpython3.6-minimal:amd64         3.6.9-1~18.04ubuntu1.3              amd64        Minimal subset of the Python language (version 3.6)
-ii  libpython3.6-stdlib:amd64          3.6.9-1~18.04ubuntu1.3              amd64        Interactive high-level object-oriented language (standard library, version 3.6)
+ii  libpython3.6:amd64                 3.6.9-1~18.04ubuntu1.4              amd64        Shared Python runtime library (version 3.6)
+ii  libpython3.6-minimal:amd64         3.6.9-1~18.04ubuntu1.4              amd64        Minimal subset of the Python language (version 3.6)
+ii  libpython3.6-stdlib:amd64          3.6.9-1~18.04ubuntu1.4              amd64        Interactive high-level object-oriented language (standard library, version 3.6)
 ii  libquadmath0:amd64                 8.4.0-1ubuntu1~18.04                amd64        GCC Quad-Precision Math Library
 ii  libreadline-dev:amd64              7.0-3                               amd64        GNU readline and history libraries, development files
 ii  libreadline7:amd64                 7.0-3                               amd64        GNU readline and history libraries, run-time libraries
@@ -592,7 +592,7 @@ ii  libzstd1:amd64                     1.3.3+dfsg-2ubuntu1.1               amd64
 ii  libzvbi-common                     0.2.35-13                           all          Vertical Blanking Interval decoder (VBI) - common files
 ii  libzvbi0:amd64                     0.2.35-13                           amd64        Vertical Blanking Interval decoder (VBI) - runtime files
 ii  linux-base                         4.5ubuntu1.2                        all          Linux image base package
-ii  linux-libc-dev:amd64               4.15.0-135.139                      amd64        Linux Kernel Headers for development
+ii  linux-libc-dev:amd64               4.15.0-136.140                      amd64        Linux Kernel Headers for development
 ii  locales                            2.27-3ubuntu1.4                     all          GNU C Library: National Language (locale) data [support]
 ii  lockfile-progs                     0.1.17build1                        amd64        Programs for locking and unlocking files and mailboxes
 ii  login                              1:4.5-1ubuntu2                      amd64        system login tools
@@ -636,16 +636,16 @@ ii  python-bzrlib                      2.7.0+bzr6622-10                    amd64
 ii  python-configobj                   5.0.6-2                             all          simple but powerful config file reader and writer for Python 2
 ii  python-minimal                     2.7.15~rc1-1                        amd64        minimal subset of the Python language (default version)
 ii  python-six                         1.11.0-2                            all          Python 2 and 3 compatibility library (Python 2 interface)
-ii  python2.7                          2.7.17-1~18.04ubuntu1.2             amd64        Interactive high-level object-oriented language (version 2.7)
-ii  python2.7-minimal                  2.7.17-1~18.04ubuntu1.2             amd64        Minimal subset of the Python language (version 2.7)
+ii  python2.7                          2.7.17-1~18.04ubuntu1.3             amd64        Interactive high-level object-oriented language (version 2.7)
+ii  python2.7-minimal                  2.7.17-1~18.04ubuntu1.3             amd64        Minimal subset of the Python language (version 2.7)
 ii  python3                            3.6.7-1~18.04                       amd64        interactive high-level object-oriented language (default python3 version)
 ii  python3-distutils                  3.6.9-1~18.04                       all          distutils package for Python 3.x
 ii  python3-lib2to3                    3.6.9-1~18.04                       all          Interactive high-level object-oriented language (2to3, version 3.6)
 ii  python3-minimal                    3.6.7-1~18.04                       amd64        minimal subset of the Python language (default python3 version)
 ii  python3-netifaces                  0.10.4-0.1build4                    amd64        portable network interface information - Python 3.x
 ii  python3-yaml                       3.12-1build2                        amd64        YAML parser and emitter for Python3
-ii  python3.6                          3.6.9-1~18.04ubuntu1.3              amd64        Interactive high-level object-oriented language (version 3.6)
-ii  python3.6-minimal                  3.6.9-1~18.04ubuntu1.3              amd64        Minimal subset of the Python language (version 3.6)
+ii  python3.6                          3.6.9-1~18.04ubuntu1.4              amd64        Interactive high-level object-oriented language (version 3.6)
+ii  python3.6-minimal                  3.6.9-1~18.04ubuntu1.4              amd64        Minimal subset of the Python language (version 3.6)
 ii  rake                               12.3.1-1ubuntu0.1                   all          ruby make-like utility
 ii  readline-common                    7.0-3                               all          GNU readline and history libraries, common files
 ii  rsync                              3.1.2-2.1ubuntu1.1                  amd64        fast, versatile, remote (and local) file-copying tool
