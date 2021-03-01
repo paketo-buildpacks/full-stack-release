@@ -354,8 +354,8 @@ ii  libproxy1v5:amd64                  0.4.15-1ubuntu0.2                   amd64
 ii  libpsl5:amd64                      0.19.1-5build1                      amd64        Library for Public Suffix List (shared libraries)
 ii  libpthread-stubs0-dev:amd64        0.3-4                               amd64        pthread stubs not provided by native libc, development files
 ii  libpython-stdlib:amd64             2.7.15~rc1-1                        amd64        interactive high-level object-oriented language (default python version)
-ii  libpython2.7-minimal:amd64         2.7.17-1~18.04ubuntu1.3             amd64        Minimal subset of the Python language (version 2.7)
-ii  libpython2.7-stdlib:amd64          2.7.17-1~18.04ubuntu1.3             amd64        Interactive high-level object-oriented language (standard library, version 2.7)
+ii  libpython2.7-minimal:amd64         2.7.17-1~18.04ubuntu1.5             amd64        Minimal subset of the Python language (version 2.7)
+ii  libpython2.7-stdlib:amd64          2.7.17-1~18.04ubuntu1.5             amd64        Interactive high-level object-oriented language (standard library, version 2.7)
 ii  libpython3-stdlib:amd64            3.6.7-1~18.04                       amd64        interactive high-level object-oriented language (default python3 version)
 ii  libpython3.6:amd64                 3.6.9-1~18.04ubuntu1.4              amd64        Shared Python runtime library (version 3.6)
 ii  libpython3.6-minimal:amd64         3.6.9-1~18.04ubuntu1.4              amd64        Minimal subset of the Python language (version 3.6)
@@ -409,8 +409,8 @@ ii  libtext-wrapi18n-perl              0.06-7.1                            all  
 ii  libthai-data                       0.1.27-2                            all          Data files for Thai language support library
 ii  libthai0:amd64                     0.1.27-2                            amd64        Thai language support library
 ii  libtheora0:amd64                   1.1.1+dfsg.1-14                     amd64        Theora Video Compression Codec
-ii  libtiff5:amd64                     4.0.9-5ubuntu0.3                    amd64        Tag Image File Format (TIFF) library
-ii  libtiffxx5:amd64                   4.0.9-5ubuntu0.3                    amd64        Tag Image File Format (TIFF) library -- C++ interface
+ii  libtiff5:amd64                     4.0.9-5ubuntu0.4                    amd64        Tag Image File Format (TIFF) library
+ii  libtiffxx5:amd64                   4.0.9-5ubuntu0.4                    amd64        Tag Image File Format (TIFF) library -- C++ interface
 ii  libtimedate-perl                   2.3000-2                            all          collection of modules to manipulate date/time information
 ii  libtinfo5:amd64                    6.1-1ubuntu1.18.04                  amd64        shared low-level terminfo library for terminal handling
 ii  libtirpc1:amd64                    0.2.5-1.2ubuntu0.1                  amd64        transport-independent RPC library
@@ -522,8 +522,8 @@ ii  python-bzrlib                      2.7.0+bzr6622-10                    amd64
 ii  python-configobj                   5.0.6-2                             all          simple but powerful config file reader and writer for Python 2
 ii  python-minimal                     2.7.15~rc1-1                        amd64        minimal subset of the Python language (default version)
 ii  python-six                         1.11.0-2                            all          Python 2 and 3 compatibility library (Python 2 interface)
-ii  python2.7                          2.7.17-1~18.04ubuntu1.3             amd64        Interactive high-level object-oriented language (version 2.7)
-ii  python2.7-minimal                  2.7.17-1~18.04ubuntu1.3             amd64        Minimal subset of the Python language (version 2.7)
+ii  python2.7                          2.7.17-1~18.04ubuntu1.5             amd64        Interactive high-level object-oriented language (version 2.7)
+ii  python2.7-minimal                  2.7.17-1~18.04ubuntu1.5             amd64        Minimal subset of the Python language (version 2.7)
 ii  python3                            3.6.7-1~18.04                       amd64        interactive high-level object-oriented language (default python3 version)
 ii  python3-distutils                  3.6.9-1~18.04                       all          distutils package for Python 3.x
 ii  python3-lib2to3                    3.6.9-1~18.04                       all          Interactive high-level object-oriented language (2to3, version 3.6)
