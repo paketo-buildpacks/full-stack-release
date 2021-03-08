@@ -1,19 +1,19 @@
 [
     {
         "title": "USN-4754-4: Python 2.7 vulnerability",
-        "release": "unreleased"
+        "release": "1.1.8"
     },
     {
         "title": "USN-4754-2: Python regression",
-        "release": "unreleased"
+        "release": "1.1.7"
     },
     {
         "title": "USN-4755-1: LibTIFF vulnerabilities",
-        "release": "unreleased"
+        "release": "1.1.7"
     },
     {
         "title": "USN-4754-1: Python vulnerabilities",
-        "release": "unreleased"
+        "release": "1.1.6"
     },
     {
         "title": "USN-4738-1: OpenSSL vulnerabilities",
