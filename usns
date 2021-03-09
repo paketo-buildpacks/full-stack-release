@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-4761-1: Git vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-4760-1: libzstd vulnerabilities",
         "release": "1.1.9"
     },
