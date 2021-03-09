@@ -1,11 +1,11 @@
 [
     {
         "title": "USN-4760-1: libzstd vulnerabilities",
-        "release": "unreleased"
+        "release": "1.1.9"
     },
     {
         "title": "USN-4759-1: GLib vulnerabilities",
-        "release": "unreleased"
+        "release": "1.1.9"
     },
     {
         "title": "USN-4754-4: Python 2.7 vulnerability",
