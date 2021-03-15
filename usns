@@ -1,7 +1,7 @@
 [
     {
         "title": "USN-4764-1: GLib vulnerability",
-        "release": "unreleased"
+        "release": "1.1.11"
     },
     {
         "title": "USN-4761-1: Git vulnerability",
