@@ -78,8 +78,8 @@ jobs:
         build_base_image="$(cat build-base-image)"
         run_base_image="$(cat run-base-image)"
 
-        published_build_base_image="$(echo "$build_base_image" | sed 's/build-rc@/build@/')"
-        published_run_base_image="$(echo "$run_base_image" | sed 's/run-rc@/run@/')"
+        published_build_base_image="$(echo "$build_base_image" | sed 's|paketotesting/build-rc@|paketobuildpacks/build@|')"
+        published_run_base_image="$(echo "$run_base_image" | sed 's|paketotesting/run-rc@|paketobuildpacks/run@|')"
 
         build_cnb_image="$(cat build-cnb-image)"
         run_cnb_image="$(cat run-cnb-image)"
