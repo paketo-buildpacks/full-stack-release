@@ -1,7 +1,7 @@
 [
     {
         "title": "USN-4882-1: Ruby vulnerabilities",
-        "release": "unreleased"
+        "release": "1.1.12"
     },
     {
         "title": "USN-4764-1: GLib vulnerability",
