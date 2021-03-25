@@ -82,7 +82,7 @@ ii  initramfs-tools-bin                0.130ubuntu3.11                     amd64
 ii  initramfs-tools-core               0.130ubuntu3.11                     all          generic modular initramfs generator (core tools)
 ii  iproute2                           4.15.0-2ubuntu1.3                   amd64        networking and traffic control tools
 ii  iputils-ping                       3:20161105-1ubuntu3                 amd64        Tools to test the reachability of network hosts
-ii  isc-dhcp-client                    4.3.5-3ubuntu7.1                    amd64        DHCP client for automatically obtaining an IP address
+ii  isc-dhcp-client                    4.3.5-3ubuntu7.2                    amd64        DHCP client for automatically obtaining an IP address
 ii  jq                                 1.5+dfsg-2                          amd64        lightweight and flexible command-line JSON processor
 ii  kbd                                2.0.4-2ubuntu1                      amd64        Linux console font and keytable utilities
 ii  keyboard-configuration             1.178ubuntu2.9                      all          system-wide keyboard preferences
@@ -392,7 +392,7 @@ ii  libsqlite0                         2.8.17-14fakesync1                  amd64
 ii  libsqlite3-0:amd64                 3.22.0-1ubuntu0.4                   amd64        SQLite 3 shared library
 ii  libss2:amd64                       1.44.1-1ubuntu1.3                   amd64        command-line interface parsing library
 ii  libssl1.0.0:amd64                  1.0.2n-1ubuntu5.6                   amd64        Secure Sockets Layer toolkit - shared libraries
-ii  libssl1.1:amd64                    1.1.1-1ubuntu2.1~18.04.8            amd64        Secure Sockets Layer toolkit - shared libraries
+ii  libssl1.1:amd64                    1.1.1-1ubuntu2.1~18.04.9            amd64        Secure Sockets Layer toolkit - shared libraries
 ii  libstdc++-6-dev:amd64              6.5.0-2ubuntu1~18.04                amd64        GNU Standard C++ Library v3 (development files)
 ii  libstdc++6:amd64                   8.4.0-1ubuntu1~18.04                amd64        GNU Standard C++ Library v3
 ii  libsub-name-perl                   0.21-1build1                        amd64        module for assigning a new name to referenced sub
@@ -481,7 +481,7 @@ ii  libzstd1:amd64                     1.3.3+dfsg-2ubuntu1.2               amd64
 ii  libzvbi-common                     0.2.35-13                           all          Vertical Blanking Interval decoder (VBI) - common files
 ii  libzvbi0:amd64                     0.2.35-13                           amd64        Vertical Blanking Interval decoder (VBI) - runtime files
 ii  linux-base                         4.5ubuntu1.2                        all          Linux image base package
-ii  linux-libc-dev:amd64               4.15.0-139.143                      amd64        Linux Kernel Headers for development
+ii  linux-libc-dev:amd64               4.15.0-140.144                      amd64        Linux Kernel Headers for development
 ii  locales                            2.27-3ubuntu1.4                     all          GNU C Library: National Language (locale) data [support]
 ii  lockfile-progs                     0.1.17build1                        amd64        Programs for locking and unlocking files and mailboxes
 ii  login                              1:4.5-1ubuntu2                      amd64        system login tools
@@ -506,7 +506,7 @@ ii  ocaml-base-nox                     4.05.0-10ubuntu1                    amd64
 ii  odbcinst                           2.3.4-1.1ubuntu3                    amd64        Helper program for accessing odbc ini files
 ii  odbcinst1debian2:amd64             2.3.4-1.1ubuntu3                    amd64        Support library for accessing odbc ini files
 ii  openssh-client                     1:7.6p1-4ubuntu0.3                  amd64        secure shell (SSH) client, for secure access to remote machines
-ii  openssl                            1.1.1-1ubuntu2.1~18.04.8            amd64        Secure Sockets Layer toolkit - cryptographic utility
+ii  openssl                            1.1.1-1ubuntu2.1~18.04.9            amd64        Secure Sockets Layer toolkit - cryptographic utility
 ii  openssl1.0                         1.0.2n-1ubuntu5.6                   amd64        Secure Sockets Layer toolkit 1.0 - cryptographic utility
 ii  passwd                             1:4.5-1ubuntu2                      amd64        change and administer password and group data
 ii  patch                              2.7.6-2ubuntu1.1                    amd64        Apply a diff file to an original
