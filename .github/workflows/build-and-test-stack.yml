@@ -1,0 +1,94 @@
+name: Build and Test Stack
+
+on:
+  workflow_dispatch: { }
+  schedule:
+    # Every Sunday at 1:00 AM
+    - cron: '0 1 * * 0'
+  push:
+    branches: [ main ]
+    paths:
+      - 'usns'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Checkout Branch
+        uses: paketo-buildpacks/github-config/actions/pull-request/checkout-branch@main
+        with:
+          branch: automation/receipts/update
+
+      - name: Setup Go
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.16
+
+      - name: Docker login
+        run: |
+          docker login -u ${{ secrets.PAKETO_TESTING_DOCKERHUB_USERNAME }} --password-stdin \
+            < <(echo '${{ secrets.PAKETO_TESTING_DOCKERHUB_PASSWORD }}')
+
+      - name: Build and push images
+        id: build-images
+        uses: paketo-buildpacks/stacks/actions/create-stack@main
+        with:
+          build_destination: paketotesting/build-rc
+          run_destination: paketotesting/run-rc
+          version: ${{ github.sha }}
+          stack: full
+          publish: true
+
+      - name: Test stack
+        uses: paketo-buildpacks/stacks/actions/test-stack@main
+        with:
+          stack_id: 'io.buildpacks.stacks.bionic'
+          build_cnb_image: ${{ steps.build-images.outputs.build_cnb_sha }}
+          run_cnb_image: ${{ steps.build-images.outputs.run_cnb_sha }}
+
+      - name: Generate image receipts
+        run: |
+          docker run "${{ steps.build-images.outputs.build_cnb_sha }}" dpkg -l > build-receipt
+          docker run "${{ steps.build-images.outputs.run_cnb_sha }}" dpkg -l > run-receipt
+
+      - name: Check changes
+        id: check-receipts
+        run: |
+          if [[ "$(git diff -s --exit-code build-receipt run-receipt && echo $?)" ]]; then
+            echo "::set-output name=receipts-diffs::false"
+          else
+            echo "::set-output name=receipts-diffs::true"
+          fi
+
+      - name: Update image files
+        if: ${{ steps.check-receipts.outputs.receipts-diffs == true }}
+        run: |
+          echo ${{ steps.build-images.outputs.build_base_sha }} > .github/ci-artifacts/build-base-image
+          echo ${{ steps.build-images.outputs.build_cnb_sha }} > .github/ci-artifacts/build-cnb-image
+          echo ${{ steps.build-images.outputs.run_base_sha }} > .github/ci-artifacts/run-base-image
+          echo ${{ steps.build-images.outputs.run_cnb_sha }} > .github/ci-artifacts/run-cnb-image
+
+      - name: Commit
+        if: ${{ steps.check-receipts.outputs.receipts-diffs == true }}
+        id: commit
+        uses: paketo-buildpacks/github-config/actions/pull-request/create-commit@main
+        with:
+          message: "Update receipts"
+          pathspec: "."
+
+      - name: Push Branch
+        if: ${{ steps.check-receipts.outputs.receipts-diffs == true }}
+        uses: paketo-buildpacks/github-config/actions/pull-request/push-branch@main
+        with:
+          branch: automation/receipts/update
+
+      - name: Open Pull Request
+        if: ${{ steps.check-receipts.outputs.receipts-diffs == true }}
+        uses: paketo-buildpacks/github-config/actions/pull-request/open@main
+        with:
+          token: ${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}
+          title: "Update receipts"
+          branch: automation/receipts/update
