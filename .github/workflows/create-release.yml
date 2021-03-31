@@ -39,17 +39,32 @@ jobs:
         docker login -u ${{ secrets.PAKETO_BUILDPACKS_DOCKERHUB_USERNAME }} --password-stdin \
           < <(echo "${{ secrets.PAKETO_BUILDPACKS_DOCKERHUB_PASSWORD }}")
 
-    - name: Set Env Vars
-      run: |
-        if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-          echo "TAG=${{ github.event.inputs.TAG }}" >> $GITHUB_ENV
-        fi
-
     - name: Get package diff
       id: get-package-diff
       uses: paketo-buildpacks/stacks/actions/get-package-diff@main
       with:
         ref: ${{ github.sha }}
+
+    - name: Set Env Vars
+      run: |
+        tag="${TAG}"
+        if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+          tag=${{ github.event.inputs.TAG }}
+        fi
+        if [[ "${tag}" == '' ]]; then
+          last_tag="$(curl -H 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/$GITHUB_REPOSITORY/tags | jq -r '.[0].name // "0.0.0"')"
+
+          if [[ -n "${{ steps.get-package-diff.outputs.added-build-packages }}" ]] || [[ -n "${{ steps.get-package-diff.outputs.added-run-packages }}" ]]; then
+           bumped_minor="$(($(echo $last_tag | cut -d . -f 2) + 1))"
+           tag="$( echo $last_tag | cut -d . -f 1)".$bumped_minor.0
+          else
+           bumped_patch="$(($(echo $last_tag | cut -d . -f 3) + 1))"
+           tag="$( echo $last_tag | cut -d . -f 1-2)".$bumped_patch
+          fi
+        fi
+
+        echo "TAG=${tag}" >> $GITHUB_ENV
+
 
     - name: Check for removed packages
       run: |
@@ -69,28 +84,14 @@ jobs:
     - name: Publish Images
       id: publish
       run: |
-        version="${VERSION}"
-        if [[ "${version}" == '' ]]; then
-          last_version="$(curl -H 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/$GITHUB_REPOSITORY/tags | jq -r '.[0].name // "0.0.0"')"
-
-          if [[ -n "${{ steps.get-package-diff.outputs.added-build-packages }}" ]] || [[ -n "${{ steps.get-package-diff.outputs.added-run-packages }}" ]]; then
-            bumped_minor="$(($(echo $last_version | cut -d . -f 2) + 1))"
-            version="$( echo $last_version | cut -d . -f 1)".$bumped_minor.0
-          else
-            bumped_patch="$(($(echo $last_version | cut -d . -f 3) + 1))"
-            version="$( echo $last_version | cut -d . -f 1-2)".$bumped_patch
-          fi
-        fi
-        echo "::set-output name=version::${version}"
-
-        build_base_image="$(cat build-base-image)"
-        run_base_image="$(cat run-base-image)"
+        build_base_image="$(cat .github/ci-artifacts/build-base-image)"
+        run_base_image="$(cat .github/ci-artifacts/run-base-image)"
 
         published_build_base_image="$(echo "$build_base_image" | sed 's|paketotesting/build-rc@|paketobuildpacks/build@|')"
         published_run_base_image="$(echo "$run_base_image" | sed 's|paketotesting/run-rc@|paketobuildpacks/run@|')"
 
-        build_cnb_image="$(cat build-cnb-image)"
-        run_cnb_image="$(cat run-cnb-image)"
+        build_cnb_image="$(cat .github/ci-artifacts/build-cnb-image)"
+        run_cnb_image="$(cat .github/ci-artifacts/run-cnb-image)"
 
         echo "FROM ${build_cnb_image}" | \
           docker build -t "paketobuildpacks/build:full-cnb" \
@@ -102,43 +103,42 @@ jobs:
 
         sudo skopeo copy "docker://${build_base_image}" "docker://paketobuildpacks/build:full"
         sudo skopeo copy "docker://${build_base_image}" "docker://paketobuildpacks/build:full-cf"
-        sudo skopeo copy "docker://${build_base_image}" "docker://paketobuildpacks/build:${version}-full"
+        sudo skopeo copy "docker://${build_base_image}" "docker://paketobuildpacks/build:${TAG}-full"
 
         docker push "paketobuildpacks/build:full-cnb"
         sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://paketobuildpacks/build:full-cnb-cf"
-        sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://paketobuildpacks/build:${version}-full-cnb"
+        sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://paketobuildpacks/build:${TAG}-full-cnb"
 
         sudo skopeo copy "docker://${run_base_image}" "docker://paketobuildpacks/run:full"
         sudo skopeo copy "docker://${run_base_image}" "docker://paketobuildpacks/run:full-cf"
-        sudo skopeo copy "docker://${run_base_image}" "docker://paketobuildpacks/run:${version}-full"
+        sudo skopeo copy "docker://${run_base_image}" "docker://paketobuildpacks/run:${TAG}-full"
 
         docker push "paketobuildpacks/run:full-cnb"
         sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://paketobuildpacks/run:full-cnb-cf"
-        sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://paketobuildpacks/run:${version}-full-cnb"
+        sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://paketobuildpacks/run:${TAG}-full-cnb"
 
         sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://gcr.io/paketo-buildpacks/run:full-cnb"
         sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://gcr.io/paketo-buildpacks/run:full-cnb-cf"
 
     - name: Publish Cloudfoundry Images
       run: |
-        build_base_image="$(cat build-base-image)"
-        run_base_image="$(cat run-base-image)"
-        version="${{ steps.publish.outputs.version }}"
+        build_base_image="$(cat .github/ci-artifacts/build-base-image)"
+        run_base_image="$(cat .github/ci-artifacts/run-base-image)"
 
         docker login -u ${{ secrets.CLOUDFOUNDRY_DOCKERHUB_USERNAME }} --password-stdin \
           < <(echo "${{ secrets.CLOUDFOUNDRY_DOCKERHUB_PASSWORD }}")
 
         sudo skopeo copy "docker://${build_base_image}" "docker://cloudfoundry/build:full"
-        sudo skopeo copy "docker://${build_base_image}" "docker://cloudfoundry/build:${version}-full"
+        sudo skopeo copy "docker://${build_base_image}" "docker://cloudfoundry/build:${TAG}-full"
 
         sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://cloudfoundry/build:full-cnb"
-        sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://cloudfoundry/build:${version}-full-cnb"
+        sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://cloudfoundry/build:${TAG}-full-cnb"
 
         sudo skopeo copy "docker://${run_base_image}" "docker://cloudfoundry/run:full"
-        sudo skopeo copy "docker://${run_base_image}" "docker://cloudfoundry/run:${version}-full"
+        sudo skopeo copy "docker://${run_base_image}" "docker://cloudfoundry/run:${TAG}-full"
 
         sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://cloudfoundry/run:full-cnb"
-        sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://cloudfoundry/run:${version}-full-cnb"
+        sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://cloudfoundry/run:${TAG}-full-cnb"
 
     - name: Get Image Refs
       id: image-refs
