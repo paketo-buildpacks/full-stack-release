@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-4900-1: OpenEXR vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-4898-1: curl vulnerabilities",
         "release": "1.1.15"
     },
