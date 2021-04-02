@@ -64,7 +64,7 @@ jobs:
           fi
 
       - name: Update image files
-        if: ${{ steps.check-receipts.outputs.receipts-diffs == true }}
+        if: ${{ steps.check-receipts.outputs.receipts-diffs == 'true' }}
         run: |
           echo ${{ steps.build-images.outputs.build_base_sha }} > .github/ci-artifacts/build-base-image
           echo ${{ steps.build-images.outputs.build_cnb_sha }} > .github/ci-artifacts/build-cnb-image
@@ -72,7 +72,7 @@ jobs:
           echo ${{ steps.build-images.outputs.run_cnb_sha }} > .github/ci-artifacts/run-cnb-image
 
       - name: Commit
-        if: ${{ steps.check-receipts.outputs.receipts-diffs == true }}
+        if: ${{ steps.check-receipts.outputs.receipts-diffs == 'true' }}
         id: commit
         uses: paketo-buildpacks/github-config/actions/pull-request/create-commit@main
         with:
@@ -80,13 +80,13 @@ jobs:
           pathspec: "."
 
       - name: Push Branch
-        if: ${{ steps.check-receipts.outputs.receipts-diffs == true }}
+        if: ${{ steps.check-receipts.outputs.receipts-diffs == 'true' }}
         uses: paketo-buildpacks/github-config/actions/pull-request/push-branch@main
         with:
           branch: automation/receipts/update
 
       - name: Open Pull Request
-        if: ${{ steps.check-receipts.outputs.receipts-diffs == true }}
+        if: ${{ steps.check-receipts.outputs.receipts-diffs == 'true' }}
         uses: paketo-buildpacks/github-config/actions/pull-request/open@main
         with:
           token: ${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}
