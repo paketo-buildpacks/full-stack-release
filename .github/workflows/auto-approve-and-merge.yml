@@ -6,7 +6,7 @@ on:
     paths-ignore:
       - 'run-receipt'
       - 'build-receipt'
-      - '.github/workflows/ci-artifacts/**'
+      - '.github/ci-artifacts/**'
 
 jobs:
   approve:
@@ -25,6 +25,7 @@ jobs:
 
   automerge:
     name: Merge or Rebase
+    if: ${{ github.event.review.user.login == 'paketo-bot-reviewer' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
