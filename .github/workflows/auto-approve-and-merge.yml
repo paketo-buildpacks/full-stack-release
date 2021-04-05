@@ -6,7 +6,7 @@ on:
     paths-ignore:
       - 'run-receipt'
       - 'build-receipt'
-      - '.github/workflows/ci-artifacts/**'
+      - '.github/ci-artifacts/**'
 
 jobs:
   approve:
