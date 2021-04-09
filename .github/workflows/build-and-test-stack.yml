@@ -13,14 +13,15 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-18.04
+    outputs:
+      receipts_diffs: ${{ steps.check-receipts.outputs.receipts_diffs }}
+      build_base_sha: ${{ steps.just-shas.outputs.build_base_sha }}
+      build_cnb_sha: ${{ steps.just-shas.outputs.build_cnb_sha }}
+      run_base_sha: ${{ steps.just-shas.outputs.run_base_sha }}
+      run_cnb_sha: ${{ steps.just-shas.outputs.run_cnb_sha }}
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Checkout Branch
-        uses: paketo-buildpacks/github-config/actions/pull-request/checkout-branch@main
-        with:
-          branch: automation/receipts/update
 
       - name: Setup Go
         uses: actions/setup-go@v1
@@ -58,35 +59,127 @@ jobs:
         id: check-receipts
         run: |
           if [[ "$(git diff -s --exit-code build-receipt run-receipt && echo $?)" ]]; then
-            echo "::set-output name=receipts-diffs::false"
+            echo "::set-output name=receipts_diffs::false"
           else
-            echo "::set-output name=receipts-diffs::true"
+            echo "::set-output name=receipts_diffs::true"
           fi
 
-      - name: Update image files
-        if: ${{ steps.check-receipts.outputs.receipts-diffs == 'true' }}
+      - name: Pull off SHAs
+        id: just-shas
         run: |
-          echo ${{ steps.build-images.outputs.build_base_sha }} > .github/ci-artifacts/build-base-image
-          echo ${{ steps.build-images.outputs.build_cnb_sha }} > .github/ci-artifacts/build-cnb-image
-          echo ${{ steps.build-images.outputs.run_base_sha }} > .github/ci-artifacts/run-base-image
-          echo ${{ steps.build-images.outputs.run_cnb_sha }} > .github/ci-artifacts/run-cnb-image
+          build_base_sha="$(echo '${{ steps.build-images.outputs.build_base_sha }}' | sed 's|docker.io/paketotesting/build-rc@||g')"
+          build_cnb_sha="$(echo '${{ steps.build-images.outputs.build_cnb_sha }}' | sed 's|docker.io/paketotesting/build-rc@||g')"
+          run_base_sha="$(echo '${{ steps.build-images.outputs.run_base_sha }}' | sed 's|docker.io/paketotesting/run-rc@||g')"
+          run_cnb_sha="$(echo '${{ steps.build-images.outputs.run_cnb_sha }}' | sed 's|docker.io/paketotesting/run-rc@||g')"
+
+          echo "::set-output name=build_base_sha::${build_base_sha}"
+          echo "::set-output name=build_cnb_sha::${build_cnb_sha}"
+          echo "::set-output name=run_base_sha::${run_base_sha}"
+          echo "::set-output name=run_cnb_sha::${run_cnb_sha}"
+
+  open-pr:
+    runs-on: ubuntu-18.04
+    if: ${{ needs.build-and-test.outputs.receipts_diffs == 'true' }}
+    needs: build-and-test
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Checkout Branch
+        uses: paketo-buildpacks/github-config/actions/pull-request/checkout-branch@main
+        with:
+          branch: automation/receipts/update
+
+      - name: Generate image receipts
+        run: |
+          build_cnb_image="paketotesting/build-rc@${{ needs.build-and-test.outputs.build_cnb_sha }}"
+          run_cnb_image="paketotesting/run-rc@${{ needs.build-and-test.outputs.run_cnb_sha }}"
+
+          docker pull "${build_cnb_image}"
+          docker pull "${run_cnb_image}"
+
+          docker run "${build_cnb_image}" dpkg -l > build-receipt
+          docker run "${run_cnb_image}" dpkg -l > run-receipt
+
+      - name: Get package diff
+        id: get-package-diff
+        uses: paketo-buildpacks/stacks/actions/get-package-diff@main
+
+      - name: Check for removed packages
+        run: |
+          removed=false
+          if [[ -n "${{ steps.get-package-diff.outputs.removed-build-packages }}" ]]; then
+            echo "Packages removed from build image: ${{ steps.get-package-diff.outputs.removed-build-packages }}"
+            removed=true
+          fi
+          if [[ -n "${{ steps.get-package-diff.outputs.removed-run-packages }}" ]]; then
+            echo "Packages removed from run image: ${{ steps.get-package-diff.outputs.removed-run-packages }}"
+            removed=true
+          fi
+          if [[ "${removed}" == "true" ]]; then
+            exit 1
+          fi
+
+      - name: Get version
+        id: get-version
+        run: |
+          last_tag="$(curl -H 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/$GITHUB_REPOSITORY/tags | jq -r '.[0].name // "0.0.0"')"
+
+          tag=
+          if [[ -n "${{ steps.get-package-diff.outputs.added-build-packages }}" ]] || [[ -n "${{ steps.get-package-diff.outputs.added-run-packages }}" ]]; then
+            bumped_minor="$(($(echo $last_tag | cut -d . -f 2) + 1))"
+            tag="$( echo $last_tag | cut -d . -f 1)".$bumped_minor.0
+          else
+            bumped_patch="$(($(echo $last_tag | cut -d . -f 3) + 1))"
+            tag="$( echo $last_tag | cut -d . -f 1-2)".$bumped_patch
+          fi
+
+          echo "${tag}" > .github/ci-artifacts/version
+
+          echo "::set-output name=version::${tag}"
+
+      - name: Update image files
+        run: |
+          echo "paketotesting/build-rc@${{ needs.build-and-test.outputs.build_base_sha }}" > .github/ci-artifacts/build-base-image
+          echo "paketotesting/build-rc@${{ needs.build-and-test.outputs.build_cnb_sha }}" > .github/ci-artifacts/build-cnb-image
+          echo "paketotesting/run-rc@${{ needs.build-and-test.outputs.run_base_sha }}" > .github/ci-artifacts/run-base-image
+          echo "paketotesting/run-rc@${{ needs.build-and-test.outputs.run_cnb_sha }}" > .github/ci-artifacts/run-cnb-image
+
+      - name: Get USN List
+        id: get-usns
+        run: |
+          curl -sL --fail -u 'paketo-bot:${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}' \
+            api.github.com/repos/paketo-buildpacks/stack-usns/contents/usns | \
+            jq -r '.content' | base64 --decode > full-usn-list
+          echo "::set-output name=usn_path::full-usn-list"
+
+      - name: Generate receipt diffs
+        id: receipt
+        uses: paketo-buildpacks/stacks/actions/receipt-diff@main
+
+      - name: Update Patched USNs
+        uses: paketo-buildpacks/stacks/actions/usn-patch@main
+        with:
+          build_receipt_diff: ${{ steps.receipt.outputs.build_diff }}
+          run_receipt_diff: ${{ steps.receipt.outputs.run_diff }}
+          relevant_usns: usns
+          all_usns: ${{ steps.get-usns.outputs.usn_path }}
+          release_version: ${{ steps.get-version.outputs.version }}
 
       - name: Commit
-        if: ${{ steps.check-receipts.outputs.receipts-diffs == 'true' }}
-        id: commit
         uses: paketo-buildpacks/github-config/actions/pull-request/create-commit@main
         with:
           message: "Update receipts"
-          pathspec: "."
+          pathspec: ':!${{ steps.get-usns.outputs.usn_path }}'
 
       - name: Push Branch
-        if: ${{ steps.check-receipts.outputs.receipts-diffs == 'true' }}
         uses: paketo-buildpacks/github-config/actions/pull-request/push-branch@main
         with:
           branch: automation/receipts/update
 
       - name: Open Pull Request
-        if: ${{ steps.check-receipts.outputs.receipts-diffs == 'true' }}
         uses: paketo-buildpacks/github-config/actions/pull-request/open@main
         with:
           token: ${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}

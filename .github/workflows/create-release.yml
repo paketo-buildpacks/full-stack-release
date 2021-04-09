@@ -1,18 +1,18 @@
 name: Create Release
 on:
-  pull_request:
+  push:
+    branches: [ main ]
     paths:
       - 'build-receipt'
       - 'run-receipt'
   workflow_dispatch:
     inputs:
       TAG:
-        required: true
+        required: false
 
 env:
   BUILD_REPO: "paketobuildpacks/build"
   RUN_REPO: "paketobuildpacks/run"
-  TAG: ${{ github.event.client_payload.tag }}
 
 jobs:
   create-release:
@@ -20,11 +20,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
-    - name: Checkout Branch
-      uses: paketo-buildpacks/github-config/actions/pull-request/checkout-branch@main
       with:
-        branch: automation/receipts/update
+        fetch-depth: 0
 
     - uses: google-github-actions/setup-gcloud@master
       with:
@@ -39,51 +36,24 @@ jobs:
         docker login -u ${{ secrets.PAKETO_BUILDPACKS_DOCKERHUB_USERNAME }} --password-stdin \
           < <(echo "${{ secrets.PAKETO_BUILDPACKS_DOCKERHUB_PASSWORD }}")
 
-    - name: Get package diff
-      id: get-package-diff
-      uses: paketo-buildpacks/stacks/actions/get-package-diff@main
-      with:
-        ref: ${{ github.sha }}
-
-    - name: Set Env Vars
+    - name: Get version
+      id: get-version
       run: |
-        tag="${TAG}"
+        version=
         if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-          tag=${{ github.event.inputs.TAG }}
+          version=${{ github.event.inputs.TAG }}
         fi
         if [[ "${tag}" == '' ]]; then
-          last_tag="$(curl -H 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/$GITHUB_REPOSITORY/tags | jq -r '.[0].name // "0.0.0"')"
-
-          if [[ -n "${{ steps.get-package-diff.outputs.added-build-packages }}" ]] || [[ -n "${{ steps.get-package-diff.outputs.added-run-packages }}" ]]; then
-           bumped_minor="$(($(echo $last_tag | cut -d . -f 2) + 1))"
-           tag="$( echo $last_tag | cut -d . -f 1)".$bumped_minor.0
-          else
-           bumped_patch="$(($(echo $last_tag | cut -d . -f 3) + 1))"
-           tag="$( echo $last_tag | cut -d . -f 1-2)".$bumped_patch
-          fi
+          version="$(cat .github/ci-artifacts/version)"
         fi
 
-        echo "TAG=${tag}" >> $GITHUB_ENV
-
-
-    - name: Check for removed packages
-      run: |
-        removed=false
-        if [[ -n "${{ steps.get-package-diff.outputs.removed-build-packages }}" ]]; then
-          echo "Packages removed from build image: ${{ steps.get-package-diff.outputs.removed-build-packages }}"
-          removed=true
-        fi
-        if [[ -n "${{ steps.get-package-diff.outputs.removed-run-packages }}" ]]; then
-          echo "Packages removed from run image: ${{ steps.get-package-diff.outputs.removed-run-packages }}"
-          removed=true
-        fi
-        if [[ "${removed}" == "true" ]]; then
-          exit 1
-        fi
+        echo "::set-output name=version::${version}"
 
     - name: Publish Images
       id: publish
       run: |
+        tag='${{ steps.get-version.outputs.version }}'
+
         build_base_image="$(cat .github/ci-artifacts/build-base-image)"
         run_base_image="$(cat .github/ci-artifacts/run-base-image)"
 
@@ -103,25 +73,27 @@ jobs:
 
         sudo skopeo copy "docker://${build_base_image}" "docker://paketobuildpacks/build:full"
         sudo skopeo copy "docker://${build_base_image}" "docker://paketobuildpacks/build:full-cf"
-        sudo skopeo copy "docker://${build_base_image}" "docker://paketobuildpacks/build:${TAG}-full"
+        sudo skopeo copy "docker://${build_base_image}" "docker://paketobuildpacks/build:${tag}-full"
 
         docker push "paketobuildpacks/build:full-cnb"
         sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://paketobuildpacks/build:full-cnb-cf"
-        sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://paketobuildpacks/build:${TAG}-full-cnb"
+        sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://paketobuildpacks/build:${tag}-full-cnb"
 
         sudo skopeo copy "docker://${run_base_image}" "docker://paketobuildpacks/run:full"
         sudo skopeo copy "docker://${run_base_image}" "docker://paketobuildpacks/run:full-cf"
-        sudo skopeo copy "docker://${run_base_image}" "docker://paketobuildpacks/run:${TAG}-full"
+        sudo skopeo copy "docker://${run_base_image}" "docker://paketobuildpacks/run:${tag}-full"
 
         docker push "paketobuildpacks/run:full-cnb"
         sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://paketobuildpacks/run:full-cnb-cf"
-        sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://paketobuildpacks/run:${TAG}-full-cnb"
+        sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://paketobuildpacks/run:${tag}-full-cnb"
 
         sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://gcr.io/paketo-buildpacks/run:full-cnb"
         sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://gcr.io/paketo-buildpacks/run:full-cnb-cf"
 
     - name: Publish Cloudfoundry Images
       run: |
+        tag='${{ steps.get-version.outputs.version }}'
+
         build_base_image="$(cat .github/ci-artifacts/build-base-image)"
         run_base_image="$(cat .github/ci-artifacts/run-base-image)"
 
@@ -129,25 +101,27 @@ jobs:
           < <(echo "${{ secrets.CLOUDFOUNDRY_DOCKERHUB_PASSWORD }}")
 
         sudo skopeo copy "docker://${build_base_image}" "docker://cloudfoundry/build:full"
-        sudo skopeo copy "docker://${build_base_image}" "docker://cloudfoundry/build:${TAG}-full"
+        sudo skopeo copy "docker://${build_base_image}" "docker://cloudfoundry/build:${tag}-full"
 
         sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://cloudfoundry/build:full-cnb"
-        sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://cloudfoundry/build:${TAG}-full-cnb"
+        sudo skopeo copy "docker://paketobuildpacks/build:full-cnb" "docker://cloudfoundry/build:${tag}-full-cnb"
 
         sudo skopeo copy "docker://${run_base_image}" "docker://cloudfoundry/run:full"
-        sudo skopeo copy "docker://${run_base_image}" "docker://cloudfoundry/run:${TAG}-full"
+        sudo skopeo copy "docker://${run_base_image}" "docker://cloudfoundry/run:${tag}-full"
 
         sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://cloudfoundry/run:full-cnb"
-        sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://cloudfoundry/run:${TAG}-full-cnb"
+        sudo skopeo copy "docker://paketobuildpacks/run:full-cnb" "docker://cloudfoundry/run:${tag}-full-cnb"
 
     - name: Get Image Refs
       id: image-refs
       shell: bash --noprofile --norc -eo pipefail {0}
       run: |
-        run_base_sha="$(skopeo inspect "docker://${RUN_REPO}:${TAG}-full" | jq .Digest -r)"
-        run_cnb_sha="$(skopeo inspect "docker://${RUN_REPO}:${TAG}-full-cnb" | jq .Digest -r)"
-        build_base_sha="$(skopeo inspect "docker://${BUILD_REPO}:${TAG}-full" | jq .Digest -r)"
-        build_cnb_sha="$(skopeo inspect "docker://${BUILD_REPO}:${TAG}-full-cnb" | jq .Digest -r)"
+        tag='${{ steps.get-version.outputs.version }}'
+
+        run_base_sha="$(skopeo inspect "docker://${RUN_REPO}:${tag}-full" | jq .Digest -r)"
+        run_cnb_sha="$(skopeo inspect "docker://${RUN_REPO}:${tag}-full-cnb" | jq .Digest -r)"
+        build_base_sha="$(skopeo inspect "docker://${BUILD_REPO}:${tag}-full" | jq .Digest -r)"
+        build_cnb_sha="$(skopeo inspect "docker://${BUILD_REPO}:${tag}-full-cnb" | jq .Digest -r)"
 
         echo "::set-output name=run_base_sha::${run_base_sha}"
         echo "::set-output name=run_cnb_sha::${run_cnb_sha}"
@@ -157,10 +131,6 @@ jobs:
     - name: Generate receipt diffs
       id: receipt
       uses: paketo-buildpacks/stacks/actions/receipt-diff@main
-      with:
-        repo: ${{ github.repository }}
-        user: paketo-bot
-        token: ${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}
 
     - name: Get USN List
       id: get-usns
@@ -182,29 +152,16 @@ jobs:
         run_receipt_diff: ${{ steps.receipt.outputs.run_diff }}
         relevant_usns: usns
         all_usns: ${{ steps.get-usns.outputs.usn_path }}
-        release_version: ${{ env.TAG }}
+        release_version: ${{ steps.get-version.outputs.version }}
         stack: full
-
-    - name: Commit
-      id: commit
-      uses: paketo-buildpacks/github-config/actions/pull-request/create-commit@main
-      with:
-        message: "Update USNs"
-        pathspec: "usns"
-
-    - name: Push Branch
-      if: ${{ steps.commit.outputs.commit_sha != '' }}
-      uses: paketo-buildpacks/github-config/actions/pull-request/push-branch@main
-      with:
-        branch: automation/receipts/update
 
     - name: Create Release
       uses: paketo-buildpacks/github-config/actions/release/create@main
       with:
         repo: ${{ github.repository }}
         token: ${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}
-        tag_name: ${{ env.TAG }}
+        tag_name: ${{ steps.get-version.outputs.version }}
         target_commitish: ${{ github.sha }}
-        name: ${{ env.TAG }}
+        name: ${{ steps.get-version.outputs.version }}
         body: ${{ steps.create-release-notes.outputs.release_body }}
         draft: false
