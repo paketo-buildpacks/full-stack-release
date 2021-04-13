@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-4906-1: Nettle vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-4900-1: OpenEXR vulnerabilities",
         "release": "1.1.16"
     },
