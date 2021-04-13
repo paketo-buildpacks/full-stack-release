@@ -270,7 +270,7 @@ ii  libharfbuzz0b:amd64                1.7.2-1ubuntu1                      amd64
 ii  libhcrypto4-heimdal:amd64          7.5.0+dfsg-1                        amd64        Heimdal Kerberos - crypto library
 ii  libheimbase1-heimdal:amd64         7.5.0+dfsg-1                        amd64        Heimdal Kerberos - Base library
 ii  libheimntlm0-heimdal:amd64         7.5.0+dfsg-1                        amd64        Heimdal Kerberos - NTLM support library
-ii  libhogweed4:amd64                  3.4-1                               amd64        low level cryptographic library (public-key cryptos)
+ii  libhogweed4:amd64                  3.4-1ubuntu0.1                      amd64        low level cryptographic library (public-key cryptos)
 ii  libhtml-parser-perl                3.72-3build1                        amd64        collection of modules that parse HTML text documents
 ii  libhtml-tagset-perl                3.20-3                              all          Data tables pertaining to HTML
 ii  libhx509-5-heimdal:amd64           7.5.0+dfsg-1                        amd64        Heimdal Kerberos - X509 support library
@@ -375,7 +375,7 @@ ii  libncurses5:amd64                  6.1-1ubuntu1.18.04                  amd64
 ii  libncurses5-dev:amd64              6.1-1ubuntu1.18.04                  amd64        developer's libraries for ncurses
 ii  libncursesw5:amd64                 6.1-1ubuntu1.18.04                  amd64        shared libraries for terminal handling (wide character support)
 ii  libnetplan0:amd64                  0.99-0ubuntu3~18.04.4               amd64        YAML network configuration abstraction runtime library
-ii  libnettle6:amd64                   3.4-1                               amd64        low level cryptographic library (symmetric and one-way cryptos)
+ii  libnettle6:amd64                   3.4-1ubuntu0.1                      amd64        low level cryptographic library (symmetric and one-way cryptos)
 ii  libnewt0.52:amd64                  0.52.20-1ubuntu1                    amd64        Not Erik's Windowing Toolkit - text mode windowing with slang
 ii  libnghttp2-14:amd64                1.30.0-1ubuntu1                     amd64        library implementing HTTP/2 protocol (shared library)
 ii  libnih-dbus-dev:amd64              1.0.3-6ubuntu2                      amd64        NIH D-Bus Bindings Library (development files)
@@ -592,7 +592,7 @@ ii  libzstd1:amd64                     1.3.3+dfsg-2ubuntu1.2               amd64
 ii  libzvbi-common                     0.2.35-13                           all          Vertical Blanking Interval decoder (VBI) - common files
 ii  libzvbi0:amd64                     0.2.35-13                           amd64        Vertical Blanking Interval decoder (VBI) - runtime files
 ii  linux-base                         4.5ubuntu1.2                        all          Linux image base package
-ii  linux-libc-dev:amd64               4.15.0-140.144                      amd64        Linux Kernel Headers for development
+ii  linux-libc-dev:amd64               4.15.0-141.145                      amd64        Linux Kernel Headers for development
 ii  locales                            2.27-3ubuntu1.4                     all          GNU C Library: National Language (locale) data [support]
 ii  lockfile-progs                     0.1.17build1                        amd64        Programs for locking and unlocking files and mailboxes
 ii  login                              1:4.5-1ubuntu2                      amd64        system login tools
@@ -614,7 +614,7 @@ ii  net-tools                          1.60+git20161116.90da8a0-1ubuntu1   amd64
 ii  netbase                            5.4                                 all          Basic TCP/IP networking system
 ii  netcat-openbsd                     1.187-1ubuntu0.1                    amd64        TCP/IP swiss army knife
 ii  netplan.io                         0.99-0ubuntu3~18.04.4               amd64        YAML network configuration abstraction for various backends
-ii  nettle-dev:amd64                   3.4-1                               amd64        low level cryptographic library (development files)
+ii  nettle-dev:amd64                   3.4-1ubuntu0.1                      amd64        low level cryptographic library (development files)
 ii  nplan                              0.99-0ubuntu3~18.04.4               all          YAML network configuration abstraction - transitional package
 ii  ocaml-base-nox                     4.05.0-10ubuntu1                    amd64        Runtime system for OCaml bytecode executables (no X)
 ii  odbcinst                           2.3.4-1.1ubuntu3                    amd64        Helper program for accessing odbc ini files
