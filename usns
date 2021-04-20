@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-4922-1: Ruby vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-4906-1: Nettle vulnerability",
         "release": "1.1.18"
     },
