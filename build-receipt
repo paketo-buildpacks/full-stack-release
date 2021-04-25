@@ -41,7 +41,7 @@ ii  debianutils                        4.8.4                               amd64
 ii  dh-python                          3.20180325ubuntu2                   all          Debian helper tools for packaging Python libraries and applications
 ii  diffutils                          1:3.6-1                             amd64        File comparison utilities
 ii  dirmngr                            2.2.4-1ubuntu1.4                    amd64        GNU privacy guard - network certificate management service
-ii  distro-info-data                   0.37ubuntu0.9                       all          information about the distributions' releases (data files)
+ii  distro-info-data                   0.37ubuntu0.10                      all          information about the distributions' releases (data files)
 ii  dnsutils                           1:9.11.3+dfsg-1ubuntu1.14           amd64        Clients provided with BIND
 ii  dpkg                               1.19.0.5ubuntu2.3                   amd64        Debian package management system
 ii  dpkg-dev                           1.19.0.5ubuntu2.3                   all          Debian package development tools
