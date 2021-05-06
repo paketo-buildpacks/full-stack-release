@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-4938-1: Unbound vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-4922-1: Ruby vulnerability",
         "release": "1.1.20"
     },
