@@ -545,9 +545,9 @@ ii  libwmf-dev                         0.2.8.4-12                          amd64
 ii  libwmf0.2-7:amd64                  0.2.8.4-12                          amd64        Windows metafile conversion library
 ii  libwrap0:amd64                     7.6.q-27                            amd64        Wietse Venema's TCP wrappers library
 ii  libwrap0-dev:amd64                 7.6.q-27                            amd64        Wietse Venema's TCP wrappers library, development files
-ii  libx11-6:amd64                     2:1.6.4-3ubuntu0.3                  amd64        X11 client-side library
-ii  libx11-data                        2:1.6.4-3ubuntu0.3                  all          X11 client-side library
-ii  libx11-dev:amd64                   2:1.6.4-3ubuntu0.3                  amd64        X11 client-side library (development headers)
+ii  libx11-6:amd64                     2:1.6.4-3ubuntu0.4                  amd64        X11 client-side library
+ii  libx11-data                        2:1.6.4-3ubuntu0.4                  all          X11 client-side library
+ii  libx11-dev:amd64                   2:1.6.4-3ubuntu0.4                  amd64        X11 client-side library (development headers)
 ii  libx264-152:amd64                  2:0.152.2854+gite9a5903-2           amd64        x264 video coding library
 ii  libx265-146:amd64                  2.6-3                               amd64        H.265/HEVC video stream encoder (shared library)
 ii  libxapian-dev                      1.4.5-1ubuntu0.1                    amd64        Development files for Xapian search engine library
