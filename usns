@@ -1,7 +1,7 @@
 [
     {
         "title": "USN-4966-1: libx11 vulnerability",
-        "release": "unreleased"
+        "release": "1.2.3"
     },
     {
         "title": "USN-4957-1: DjVuLibre vulnerabilities",
