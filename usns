@@ -1,7 +1,7 @@
 [
     {
         "title": "USN-4968-1: LZ4 vulnerability",
-        "release": "unreleased"
+        "release": "1.2.4"
     },
     {
         "title": "USN-4966-1: libx11 vulnerability",
