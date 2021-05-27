@@ -1,7 +1,7 @@
 [
     {
         "title": "USN-4969-1: DHCP vulnerability",
-        "release": "unreleased"
+        "release": "1.2.5"
     },
     {
         "title": "USN-4968-1: LZ4 vulnerability",
