@@ -103,7 +103,7 @@ ii  initramfs-tools-bin                0.130ubuntu3.12                     amd64
 ii  initramfs-tools-core               0.130ubuntu3.12                     all          generic modular initramfs generator (core tools)
 ii  iproute2                           4.15.0-2ubuntu1.3                   amd64        networking and traffic control tools
 ii  iputils-ping                       3:20161105-1ubuntu3                 amd64        Tools to test the reachability of network hosts
-ii  isc-dhcp-client                    4.3.5-3ubuntu7.2                    amd64        DHCP client for automatically obtaining an IP address
+ii  isc-dhcp-client                    4.3.5-3ubuntu7.3                    amd64        DHCP client for automatically obtaining an IP address
 ii  jq                                 1.5+dfsg-2                          amd64        lightweight and flexible command-line JSON processor
 ii  kbd                                2.0.4-2ubuntu1                      amd64        Linux console font and keytable utilities
 ii  keyboard-configuration             1.178ubuntu2.9                      all          system-wide keyboard preferences
