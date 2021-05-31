@@ -325,10 +325,10 @@ ii  libossp-uuid16:amd64               1.6.2-1.5build4                     amd64
 ii  libp11-kit-dev:amd64               0.23.9-2ubuntu0.1                   amd64        library for loading and coordinating access to PKCS#11 modules - development
 ii  libp11-kit0:amd64                  0.23.9-2ubuntu0.1                   amd64        library for loading and coordinating access to PKCS#11 modules - runtime
 ii  libpam-cap:amd64                   1:2.25-1.2                          amd64        POSIX 1003.1e capabilities (PAM module)
-ii  libpam-modules:amd64               1.1.8-3.6ubuntu2.18.04.2            amd64        Pluggable Authentication Modules for PAM
-ii  libpam-modules-bin                 1.1.8-3.6ubuntu2.18.04.2            amd64        Pluggable Authentication Modules for PAM - helper binaries
-ii  libpam-runtime                     1.1.8-3.6ubuntu2.18.04.2            all          Runtime support for the PAM library
-ii  libpam0g:amd64                     1.1.8-3.6ubuntu2.18.04.2            amd64        Pluggable Authentication Modules library
+ii  libpam-modules:amd64               1.1.8-3.6ubuntu2.18.04.3            amd64        Pluggable Authentication Modules for PAM
+ii  libpam-modules-bin                 1.1.8-3.6ubuntu2.18.04.3            amd64        Pluggable Authentication Modules for PAM - helper binaries
+ii  libpam-runtime                     1.1.8-3.6ubuntu2.18.04.3            all          Runtime support for the PAM library
+ii  libpam0g:amd64                     1.1.8-3.6ubuntu2.18.04.3            amd64        Pluggable Authentication Modules library
 ii  libpango-1.0-0:amd64               1.40.14-1ubuntu0.1                  amd64        Layout and rendering of internationalized text
 ii  libpango1.0-0:amd64                1.40.14-1ubuntu0.1                  amd64        Layout and rendering of internationalized text (transitional package)
 ii  libpango1.0-dev                    1.40.14-1ubuntu0.1                  amd64        Development files for the Pango
