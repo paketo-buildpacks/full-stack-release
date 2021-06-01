@@ -1,7 +1,7 @@
 [
     {
         "title": "USN-4971-1: libwebp vulnerabilities",
-        "release": "unreleased"
+        "release": "1.2.7"
     },
     {
         "title": "USN-4969-1: DHCP vulnerability",
