@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-4988-1: ImageMagick vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-4971-1: libwebp vulnerabilities",
         "release": "1.2.7"
     },
