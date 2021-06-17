@@ -1,7 +1,7 @@
 [
     {
         "title": "USN-4990-1: Nettle vulnerabilities",
-        "release": "unreleased"
+        "release": "1.2.10"
     },
     {
         "title": "USN-4988-1: ImageMagick vulnerabilities",
