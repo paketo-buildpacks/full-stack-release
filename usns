@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-4991-1: libxml2 vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-4990-1: Nettle vulnerabilities",
         "release": "1.2.10"
     },
