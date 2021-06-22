@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-4996-1: OpenEXR vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-4991-1: libxml2 vulnerabilities",
         "release": "1.2.11"
     },
