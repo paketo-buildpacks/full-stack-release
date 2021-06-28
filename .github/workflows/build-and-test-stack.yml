@@ -3,8 +3,8 @@ name: Build and Test Stack
 on:
   workflow_dispatch: { }
   schedule:
-    # Every Sunday at 1:00 AM
-    - cron: '0 1 * * 0'
+    # Everyday at 1:00 AM
+    - cron: '0 1 * * *'
   push:
     branches: [ main ]
     paths:
