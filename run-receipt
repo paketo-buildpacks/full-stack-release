@@ -113,9 +113,9 @@ ii  libattr1:amd64                     1:2.4.47-2build1                    amd64
 ii  libaudiofile1:amd64                0.3.6-4                             amd64        Open-source version of SGI's audiofile library
 ii  libaudit-common                    1:2.8.2-1ubuntu1.1                  all          Dynamic library for security auditing - common files
 ii  libaudit1:amd64                    1:2.8.2-1ubuntu1.1                  amd64        Dynamic library for security auditing
-ii  libavahi-client3:amd64             0.7-3.1ubuntu1.2                    amd64        Avahi client library
-ii  libavahi-common-data:amd64         0.7-3.1ubuntu1.2                    amd64        Avahi common data files
-ii  libavahi-common3:amd64             0.7-3.1ubuntu1.2                    amd64        Avahi common library
+ii  libavahi-client3:amd64             0.7-3.1ubuntu1.3                    amd64        Avahi client library
+ii  libavahi-common-data:amd64         0.7-3.1ubuntu1.3                    amd64        Avahi common data files
+ii  libavahi-common3:amd64             0.7-3.1ubuntu1.3                    amd64        Avahi common library
 ii  libavcodec57:amd64                 7:3.4.8-0ubuntu0.2                  amd64        FFmpeg library with de/encoders for audio/video codecs - runtime files
 ii  libavutil55:amd64                  7:3.4.8-0ubuntu0.2                  amd64        FFmpeg library with functions for simplifying programming - runtime files
 ii  libbabeltrace1:amd64               1.5.5-1                             amd64        Babeltrace conversion libraries
