@@ -88,7 +88,7 @@ ii  gsfonts                            1:8.11+urwcyr1.0.7~pre44-4.4        all  
 ii  gss-ntlmssp                        0.7.0-4build3                       amd64        GSSAPI NTLMSSP Mechanism -- MIT GSSAPI plugin
 ii  gss-ntlmssp-dev                    0.7.0-4build3                       amd64        GSSAPI NTLMSSP Mechanism -- development headers
 ii  gtk-update-icon-cache              3.22.30-1ubuntu4                    amd64        icon theme caching utility
-ii  gzip                               1.6-5ubuntu1                        amd64        GNU compression utilities
+ii  gzip                               1.6-5ubuntu1.1                      amd64        GNU compression utilities
 ii  hicolor-icon-theme                 0.17-2                              all          default fallback theme for FreeDesktop.org icon themes
 ii  hostname                           3.20                                amd64        utility to set/show the host name or domain name
 ii  humanity-icon-theme                0.6.15                              all          Humanity Icon theme
