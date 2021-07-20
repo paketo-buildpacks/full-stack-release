@@ -98,9 +98,9 @@ ii  imagemagick-6-common               8:6.9.7.4+dfsg-16ubuntu6.11         all  
 ii  imagemagick-6.q16                  8:6.9.7.4+dfsg-16ubuntu6.11         amd64        image manipulation programs -- quantum depth Q16
 ii  init                               1.51                                amd64        metapackage ensuring an init system is installed
 ii  init-system-helpers                1.51                                all          helper tools for all init systems
-ii  initramfs-tools                    0.130ubuntu3.12                     all          generic modular initramfs generator (automation)
-ii  initramfs-tools-bin                0.130ubuntu3.12                     amd64        binaries used by initramfs-tools
-ii  initramfs-tools-core               0.130ubuntu3.12                     all          generic modular initramfs generator (core tools)
+ii  initramfs-tools                    0.130ubuntu3.13                     all          generic modular initramfs generator (automation)
+ii  initramfs-tools-bin                0.130ubuntu3.13                     amd64        binaries used by initramfs-tools
+ii  initramfs-tools-core               0.130ubuntu3.13                     all          generic modular initramfs generator (core tools)
 ii  iproute2                           4.15.0-2ubuntu1.3                   amd64        networking and traffic control tools
 ii  iputils-ping                       3:20161105-1ubuntu3                 amd64        Tools to test the reachability of network hosts
 ii  isc-dhcp-client                    4.3.5-3ubuntu7.3                    amd64        DHCP client for automatically obtaining an IP address
@@ -495,7 +495,7 @@ ii  libswresample-dev:amd64            7:3.4.8-0ubuntu0.2                  amd64
 ii  libswresample2:amd64               7:3.4.8-0ubuntu0.2                  amd64        FFmpeg library for audio resampling, rematrixing etc. - runtime files
 ii  libsysfs-dev:amd64                 2.1.0+repack-4build1                amd64        interface library to sysfs - development files
 ii  libsysfs2:amd64                    2.1.0+repack-4build1                amd64        interface library to sysfs
-ii  libsystemd0:amd64                  237-3ubuntu10.48                    amd64        systemd utility library
+ii  libsystemd0:amd64                  237-3ubuntu10.49                    amd64        systemd utility library
 ii  libtasn1-6:amd64                   4.13-2                              amd64        Manage ASN.1 structures (runtime)
 ii  libtasn1-6-dev:amd64               4.13-2                              amd64        Manage ASN.1 structures (development)
 ii  libterm-ui-perl                    0.46-1                              all          Term::ReadLine UI made easy
@@ -518,7 +518,7 @@ ii  libtool                            2.4.6-2                             all  
 ii  libtsan0:amd64                     8.4.0-1ubuntu1~18.04                amd64        ThreadSanitizer -- a Valgrind-based detector of data races (runtime)
 ii  libtwolame0:amd64                  0.3.13-3                            amd64        MPEG Audio Layer 2 encoding library
 ii  libubsan0:amd64                    7.5.0-3ubuntu1~18.04                amd64        UBSan -- undefined behaviour sanitizer (runtime)
-ii  libudev1:amd64                     237-3ubuntu10.48                    amd64        libudev shared library
+ii  libudev1:amd64                     237-3ubuntu10.49                    amd64        libudev shared library
 ii  libunbound2:amd64                  1.6.7-1ubuntu2.4                    amd64        library implementing DNS resolution and validation
 ii  libunistring2:amd64                0.9.9-0ubuntu2                      amd64        Unicode string library for C
 ii  libunwind-dev:amd64                1.2.1-8                             amd64        library to determine the call-chain of a program - development
@@ -665,8 +665,8 @@ ii  shared-mime-info                   1.9-2                               amd64
 ii  subversion                         1.9.7-4ubuntu1                      amd64        Advanced version control system
 ii  sudo                               1.8.21p2-3ubuntu1.4                 amd64        Provide limited super user privileges to specific users
 ii  sysstat                            11.6.1-1ubuntu0.1                   amd64        system performance tools for Linux
-ii  systemd                            237-3ubuntu10.48                    amd64        system and service manager
-ii  systemd-sysv                       237-3ubuntu10.48                    amd64        system and service manager - SysV links
+ii  systemd                            237-3ubuntu10.49                    amd64        system and service manager
+ii  systemd-sysv                       237-3ubuntu10.49                    amd64        system and service manager - SysV links
 ii  sysvinit-utils                     2.88dsf-59.10ubuntu1                amd64        System-V-like utilities
 ii  tar                                1.29b-2ubuntu0.2                    amd64        GNU version of the tar archiving utility
 ii  ttf-dejavu-core                    2.37-1                              all          transitional dummy package
@@ -676,7 +676,7 @@ ii  ubuntu-keyring                     2018.09.18.1~18.04.2                all  
 ii  ubuntu-minimal                     1.417.5                             amd64        Minimal core of Ubuntu
 ii  ubuntu-mono                        16.10+18.04.20181005-0ubuntu1       all          Ubuntu Mono Icon theme
 ii  ucf                                3.0038                              all          Update Configuration File(s): preserve user changes to config files
-ii  udev                               237-3ubuntu10.48                    amd64        /dev/ and hotplug management daemon
+ii  udev                               237-3ubuntu10.49                    amd64        /dev/ and hotplug management daemon
 ii  unixodbc                           2.3.4-1.1ubuntu3                    amd64        Basic ODBC tools
 ii  unixodbc-dev:amd64                 2.3.4-1.1ubuntu3                    amd64        ODBC libraries for UNIX (development files)
 ii  unzip                              6.0-21ubuntu1.1                     amd64        De-archiver for .zip files
