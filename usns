@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5021-1: curl vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5020-1: Ruby vulnerabilities",
         "release": "1.2.21"
     },
