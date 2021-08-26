@@ -1,11 +1,11 @@
 [
     {
         "title": "USN-5051-3: OpenSSL vulnerability",
-        "release": "unreleased"
+        "release": "1.2.32"
     },
     {
         "title": "USN-5051-1: OpenSSL vulnerabilities",
-        "release": "unreleased"
+        "release": "1.2.32"
     },
     {
         "title": "USN-5021-1: curl vulnerabilities",
