@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5051-3: OpenSSL vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5051-1: OpenSSL vulnerabilities",
         "release": "unreleased"
     },
