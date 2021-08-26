@@ -135,9 +135,14 @@ jobs:
     - name: Get USN List
       id: get-usns
       run: |
+        file_sha="$(curl -sL --fail -u 'paketo-bot:${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}' \
+          api.github.com/repos/paketo-buildpacks/stack-usns/git/trees/main | \
+          jq -r '.tree[] | select(.path == "usns") | .sha')"
+
         curl -sL --fail -u 'paketo-bot:${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}' \
-          api.github.com/repos/paketo-buildpacks/stack-usns/contents/usns | \
+          api.github.com/repos/paketo-buildpacks/stack-usns/git/blobs/${file_sha} | \
           jq -r '.content' | base64 --decode > full-usn-list
+
         echo "::set-output name=usn_path::full-usn-list"
 
     - name: Create Release Notes
