@@ -21,7 +21,7 @@ ii  ca-certificates                    20210119~18.04.1                    all  
 ii  console-setup                      1.178ubuntu2.9                      all          console font and keymap setup program
 ii  console-setup-linux                1.178ubuntu2.9                      all          Linux specific part of console-setup
 ii  coreutils                          8.28-1ubuntu1                       amd64        GNU core utilities
-ii  cpio                               2.12+dfsg-6ubuntu0.18.04.1          amd64        GNU cpio -- a program to manage archives of files
+ii  cpio                               2.12+dfsg-6ubuntu0.18.04.4          amd64        GNU cpio -- a program to manage archives of files
 ii  curl                               7.58.0-2ubuntu3.14                  amd64        command line tool for transferring data with URL syntax
 ii  dash                               0.5.8-2.10                          amd64        POSIX-compliant shell
 ii  debconf                            1.5.66ubuntu1                       all          Debian configuration management system
@@ -183,7 +183,7 @@ ii  libfribidi0:amd64                  0.19.7-2                            amd64
 ii  libgcc-6-dev:amd64                 6.5.0-2ubuntu1~18.04                amd64        GCC support library (development files)
 ii  libgcc1:amd64                      1:8.4.0-1ubuntu1~18.04              amd64        GCC support library
 ii  libgcrypt20:amd64                  1.8.1-4ubuntu1.2                    amd64        LGPL Crypto library - runtime library
-ii  libgd3:amd64                       2.2.5-4ubuntu0.4                    amd64        GD Graphics Library
+ii  libgd3:amd64                       2.2.5-4ubuntu0.5                    amd64        GD Graphics Library
 ii  libgdbm-compat4:amd64              1.14.1-6                            amd64        GNU dbm database routines (legacy support runtime version) 
 ii  libgdbm5:amd64                     1.14.1-6                            amd64        GNU dbm database routines (runtime version) 
 ii  libgdk-pixbuf2.0-0:amd64           2.36.11-2                           amd64        GDK Pixbuf library

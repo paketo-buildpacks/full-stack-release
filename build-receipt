@@ -30,7 +30,7 @@ ii  comerr-dev:amd64                   2.1-1.44.1-1ubuntu1.3               amd64
 ii  console-setup                      1.178ubuntu2.9                      all          console font and keymap setup program
 ii  console-setup-linux                1.178ubuntu2.9                      all          Linux specific part of console-setup
 ii  coreutils                          8.28-1ubuntu1                       amd64        GNU core utilities
-ii  cpio                               2.12+dfsg-6ubuntu0.18.04.1          amd64        GNU cpio -- a program to manage archives of files
+ii  cpio                               2.12+dfsg-6ubuntu0.18.04.4          amd64        GNU cpio -- a program to manage archives of files
 ii  cpp                                4:7.4.0-1ubuntu2.3                  amd64        GNU C preprocessor (cpp)
 ii  cpp-7                              7.5.0-3ubuntu1~18.04                amd64        GNU C preprocessor
 ii  curl                               7.58.0-2ubuntu3.14                  amd64        command line tool for transferring data with URL syntax
@@ -225,8 +225,8 @@ ii  libgcc-7-dev:amd64                 7.5.0-3ubuntu1~18.04                amd64
 ii  libgcc1:amd64                      1:8.4.0-1ubuntu1~18.04              amd64        GCC support library
 ii  libgcrypt20:amd64                  1.8.1-4ubuntu1.2                    amd64        LGPL Crypto library - runtime library
 ii  libgcrypt20-dev                    1.8.1-4ubuntu1.2                    amd64        LGPL Crypto library - development files
-ii  libgd-dev:amd64                    2.2.5-4ubuntu0.4                    amd64        GD Graphics Library (development version)
-ii  libgd3:amd64                       2.2.5-4ubuntu0.4                    amd64        GD Graphics Library
+ii  libgd-dev:amd64                    2.2.5-4ubuntu0.5                    amd64        GD Graphics Library (development version)
+ii  libgd3:amd64                       2.2.5-4ubuntu0.5                    amd64        GD Graphics Library
 ii  libgdbm-compat4:amd64              1.14.1-6                            amd64        GNU dbm database routines (legacy support runtime version) 
 ii  libgdbm5:amd64                     1.14.1-6                            amd64        GNU dbm database routines (runtime version) 
 ii  libgdk-pixbuf2.0-0:amd64           2.36.11-2                           amd64        GDK Pixbuf library
