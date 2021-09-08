@@ -1,7 +1,7 @@
 [
     {
         "title": "USN-5064-1: GNU cpio vulnerability",
-        "release": "unreleased"
+        "release": "1.2.34"
     },
     {
         "title": "USN-5051-3: OpenSSL vulnerability",
