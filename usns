@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5068-1: GD library vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5064-1: GNU cpio vulnerability",
         "release": "1.2.34"
     },
