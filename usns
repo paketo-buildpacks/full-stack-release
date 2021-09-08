@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5064-1: GNU cpio vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5051-3: OpenSSL vulnerability",
         "release": "1.2.32"
     },
