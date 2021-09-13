@@ -1,7 +1,7 @@
 [
     {
         "title": "USN-5076-1: Git vulnerability",
-        "release": "unreleased"
+        "release": "1.2.35"
     },
     {
         "title": "USN-5068-1: GD library vulnerabilities",
