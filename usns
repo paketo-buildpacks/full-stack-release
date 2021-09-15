@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5079-1: curl vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5076-1: Git vulnerability",
         "release": "1.2.35"
     },
