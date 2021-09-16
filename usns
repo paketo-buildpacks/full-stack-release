@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5080-1: Libgcrypt vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5079-1: curl vulnerabilities",
         "release": "1.2.36"
     },
