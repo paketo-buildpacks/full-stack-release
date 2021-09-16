@@ -223,8 +223,8 @@ ii  libfribidi-dev                     0.19.7-2                            amd64
 ii  libfribidi0:amd64                  0.19.7-2                            amd64        Free Implementation of the Unicode BiDi algorithm
 ii  libgcc-7-dev:amd64                 7.5.0-3ubuntu1~18.04                amd64        GCC support library (development files)
 ii  libgcc1:amd64                      1:8.4.0-1ubuntu1~18.04              amd64        GCC support library
-ii  libgcrypt20:amd64                  1.8.1-4ubuntu1.2                    amd64        LGPL Crypto library - runtime library
-ii  libgcrypt20-dev                    1.8.1-4ubuntu1.2                    amd64        LGPL Crypto library - development files
+ii  libgcrypt20:amd64                  1.8.1-4ubuntu1.3                    amd64        LGPL Crypto library - runtime library
+ii  libgcrypt20-dev                    1.8.1-4ubuntu1.3                    amd64        LGPL Crypto library - development files
 ii  libgd-dev:amd64                    2.2.5-4ubuntu0.5                    amd64        GD Graphics Library (development version)
 ii  libgd3:amd64                       2.2.5-4ubuntu0.5                    amd64        GD Graphics Library
 ii  libgdbm-compat4:amd64              1.14.1-6                            amd64        GNU dbm database routines (legacy support runtime version) 
