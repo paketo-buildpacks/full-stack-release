@@ -1,7 +1,7 @@
 [
     {
         "title": "USN-5089-1: ca-certificates update",
-        "release": "unreleased"
+        "release": "1.2.41"
     },
     {
         "title": "USN-5079-3: curl vulnerabilities",
