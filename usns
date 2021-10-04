@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5102-1: Mercurial vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5089-1: ca-certificates update",
         "release": "1.2.41"
     },
