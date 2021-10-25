@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5124-1: GNU binutils vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5102-1: Mercurial vulnerabilities",
         "release": "1.2.43"
     },
