@@ -592,7 +592,7 @@ ii  libyaml-dev:amd64                  0.1.7-2ubuntu3                      amd64
 ii  libzstd1:amd64                     1.3.3+dfsg-2ubuntu1.2               amd64        fast lossless compression algorithm
 ii  libzvbi-common                     0.2.35-13                           all          Vertical Blanking Interval decoder (VBI) - common files
 ii  libzvbi0:amd64                     0.2.35-13                           amd64        Vertical Blanking Interval decoder (VBI) - runtime files
-ii  linux-base                         4.5ubuntu1.6                        all          Linux image base package
+ii  linux-base                         4.5ubuntu1.7                        all          Linux image base package
 ii  linux-libc-dev:amd64               4.15.0-161.169                      amd64        Linux Kernel Headers for development
 ii  locales                            2.27-3ubuntu1.4                     all          GNU C Library: National Language (locale) data [support]
 ii  lockfile-progs                     0.1.17build1                        amd64        Programs for locking and unlocking files and mailboxes
