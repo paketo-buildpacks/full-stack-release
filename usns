@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5133-1: ICU vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5124-1: GNU binutils vulnerabilities",
         "release": "1.2.49"
     },
