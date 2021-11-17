@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5150-1: OpenEXR vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5144-1: OpenEXR vulnerability",
         "release": "1.2.55"
     },
