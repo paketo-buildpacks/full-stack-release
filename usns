@@ -1,7 +1,7 @@
 [
     {
         "title": "USN-5179-1: BusyBox vulnerabilities",
-        "release": "unreleased"
+        "release": "1.3.4"
     },
     {
         "title": "USN-4668-3: python-apt regression",

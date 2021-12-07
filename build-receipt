@@ -20,7 +20,7 @@ ii  binutils-x86-64-linux-gnu          2.30-21ubuntu1~18.04.7              amd64
 ii  bison                              2:3.0.4.dfsg-1build1                amd64        YACC-compatible parser generator
 ii  bsdutils                           1:2.31.1-0.4ubuntu3.7               amd64        basic utilities from 4.4BSD-Lite
 ii  build-essential                    12.4ubuntu1                         amd64        Informational list of build-essential packages
-ii  busybox-initramfs                  1:1.27.2-2ubuntu3.3                 amd64        Standalone shell setup for initramfs
+ii  busybox-initramfs                  1:1.27.2-2ubuntu3.4                 amd64        Standalone shell setup for initramfs
 ii  bzip2                              1.0.6-8.1ubuntu0.2                  amd64        high-quality block-sorting file compressor - utilities
 ii  bzr                                2.7.0+bzr6622-10                    all          easy to use distributed version control system
 ii  ca-certificates                    20210119~18.04.2                    all          Common CA certificates
