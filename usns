@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5179-1: BusyBox vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-4668-3: python-apt regression",
         "release": "unreleased"
     },
