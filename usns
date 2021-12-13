@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5189-1: GLib vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5179-1: BusyBox vulnerabilities",
         "release": "1.3.4"
     },
