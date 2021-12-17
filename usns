@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5199-1: Python vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5189-1: GLib vulnerability",
         "release": "1.3.6"
     },
