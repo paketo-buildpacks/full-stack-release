@@ -673,7 +673,7 @@ ii  sysvinit-utils                     2.88dsf-59.10ubuntu1                amd64
 ii  tar                                1.29b-2ubuntu0.2                    amd64        GNU version of the tar archiving utility
 ii  ttf-dejavu-core                    2.37-1                              all          transitional dummy package
 ii  tzdata                             2021e-0ubuntu0.18.04                all          time zone and daylight-saving time data
-ii  ubuntu-advantage-tools             27.4.2~18.04.1                      amd64        management tools for Ubuntu Advantage
+ii  ubuntu-advantage-tools             27.5~18.04.1                        amd64        management tools for Ubuntu Advantage
 ii  ubuntu-keyring                     2018.09.18.1~18.04.2                all          GnuPG keys of the Ubuntu archive
 ii  ubuntu-minimal                     1.417.5                             amd64        Minimal core of Ubuntu
 ii  ubuntu-mono                        16.10+18.04.20181005-0ubuntu1       all          Ubuntu Mono Icon theme
