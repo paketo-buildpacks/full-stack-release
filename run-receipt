@@ -485,7 +485,7 @@ ii  linux-base                         4.5ubuntu1.7                        all  
 ii  linux-libc-dev:amd64               4.15.0-166.174                      amd64        Linux Kernel Headers for development
 ii  locales                            2.27-3ubuntu1.4                     all          GNU C Library: National Language (locale) data [support]
 ii  lockfile-progs                     0.1.17build1                        amd64        Programs for locking and unlocking files and mailboxes
-ii  login                              1:4.5-1ubuntu2                      amd64        system login tools
+ii  login                              1:4.5-1ubuntu2.2                    amd64        system login tools
 ii  lsb-base                           9.20170808ubuntu1                   all          Linux Standard Base init script functionality
 ii  lsb-release                        9.20170808ubuntu1                   all          Linux Standard Base version reporting utility
 ii  lsof                               4.89+dfsg-0.1                       amd64        Utility to list open files
@@ -509,7 +509,7 @@ ii  odbcinst1debian2:amd64             2.3.4-1.1ubuntu3                    amd64
 ii  openssh-client                     1:7.6p1-4ubuntu0.5                  amd64        secure shell (SSH) client, for secure access to remote machines
 ii  openssl                            1.1.1-1ubuntu2.1~18.04.14           amd64        Secure Sockets Layer toolkit - cryptographic utility
 ii  openssl1.0                         1.0.2n-1ubuntu5.7                   amd64        Secure Sockets Layer toolkit 1.0 - cryptographic utility
-ii  passwd                             1:4.5-1ubuntu2                      amd64        change and administer password and group data
+ii  passwd                             1:4.5-1ubuntu2.2                    amd64        change and administer password and group data
 ii  patch                              2.7.6-2ubuntu1.1                    amd64        Apply a diff file to an original
 ii  perl                               5.26.1-6ubuntu0.5                   amd64        Larry Wall's Practical Extraction and Report Language
 ii  perl-base                          5.26.1-6ubuntu0.5                   amd64        minimal Perl system
