@@ -478,7 +478,7 @@ ii  libsm6:amd64                       2:1.2.2-1                           amd64
 ii  libsmartcols1:amd64                2.31.1-0.4ubuntu3.7                 amd64        smart column output alignment library
 ii  libsnappy1v5:amd64                 1.1.7-1                             amd64        fast compression/decompression library
 ii  libsoxr0:amd64                     0.1.2-3                             amd64        High quality 1D sample-rate conversion library
-ii  libspeex1:amd64                    1.2~rc1.2-1ubuntu2                  amd64        The Speex codec runtime library
+ii  libspeex1:amd64                    1.2~rc1.2-1ubuntu2.1                amd64        The Speex codec runtime library
 ii  libsqlite0                         2.8.17-14fakesync1                  amd64        SQLite 2 shared library
 ii  libsqlite0-dev                     2.8.17-14fakesync1                  amd64        SQLite 2 development files
 ii  libsqlite3-0:amd64                 3.22.0-1ubuntu0.4                   amd64        SQLite 3 shared library
@@ -673,7 +673,7 @@ ii  sysvinit-utils                     2.88dsf-59.10ubuntu1                amd64
 ii  tar                                1.29b-2ubuntu0.2                    amd64        GNU version of the tar archiving utility
 ii  ttf-dejavu-core                    2.37-1                              all          transitional dummy package
 ii  tzdata                             2021e-0ubuntu0.18.04                all          time zone and daylight-saving time data
-ii  ubuntu-advantage-tools             27.5~18.04.1                        amd64        management tools for Ubuntu Advantage
+ii  ubuntu-advantage-tools             27.6~18.04.1                        amd64        management tools for Ubuntu Advantage
 ii  ubuntu-keyring                     2018.09.18.1~18.04.2                all          GnuPG keys of the Ubuntu archive
 ii  ubuntu-minimal                     1.417.5                             amd64        Minimal core of Ubuntu
 ii  ubuntu-mono                        16.10+18.04.20181005-0ubuntu1       all          Ubuntu Mono Icon theme
