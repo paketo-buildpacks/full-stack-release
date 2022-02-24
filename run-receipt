@@ -538,7 +538,7 @@ ii  python3.6                          3.6.9-1~18.04ubuntu1.6              amd64
 ii  python3.6-minimal                  3.6.9-1~18.04ubuntu1.6              amd64        Minimal subset of the Python language (version 3.6)
 ii  rake                               12.3.1-1ubuntu0.1                   all          ruby make-like utility
 ii  readline-common                    7.0-3                               all          GNU readline and history libraries, common files
-ii  rsync                              3.1.2-2.1ubuntu1.2                  amd64        fast, versatile, remote (and local) file-copying tool
+ii  rsync                              3.1.2-2.1ubuntu1.3                  amd64        fast, versatile, remote (and local) file-copying tool
 ii  ruby                               1:2.5.1                             amd64        Interpreter of object-oriented scripting language Ruby (default version)
 ii  ruby-did-you-mean                  1.2.0-2                             all          smart error messages for Ruby > 2.3
 ii  ruby-minitest                      5.10.3-1                            all          Ruby test tools supporting TDD, BDD, mocking, and benchmarking
