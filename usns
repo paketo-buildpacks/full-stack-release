@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5324-1: libxml2 vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5320-1: Expat vulnerabilities and regression",
         "release": "1.3.25"
     },
