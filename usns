@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5342-1: Python vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5329-1: tar vulnerability",
         "release": "unreleased"
     },
