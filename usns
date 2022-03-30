@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5355-1: zlib vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5342-1: Python vulnerabilities",
         "release": "1.3.29"
     },
