@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5359-1: rsync vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5355-1: zlib vulnerability",
         "release": "1.3.29"
     },
