@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5366-1: FriBidi vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5359-1: rsync vulnerability",
         "release": "1.3.29"
     },
