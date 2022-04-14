@@ -1,5 +1,17 @@
 [
     {
+        "title": "USN-5378-2: XZ Utils vulnerability",
+        "release": "unreleased"
+    },
+    {
+        "title": "USN-5378-1: Gzip vulnerability",
+        "release": "unreleased"
+    },
+    {
+        "title": "USN-5376-1: Git vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5366-1: FriBidi vulnerabilities",
         "release": "unreleased"
     },
