@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5379-1: klibc vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5378-2: XZ Utils vulnerability",
         "release": "unreleased"
     },
