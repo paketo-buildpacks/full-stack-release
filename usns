@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5380-1: Bash vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5379-1: klibc vulnerabilities",
         "release": "1.3.33"
     },
