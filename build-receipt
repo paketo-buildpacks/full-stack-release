@@ -12,7 +12,7 @@ ii  automake                           1:1.15.1-3ubuntu2                   all  
 ii  autotools-dev                      20180224.1                          all          Update infrastructure for config.{guess,sub} files
 ii  base-files                         10.1ubuntu2.11                      amd64        Debian base system miscellaneous files
 ii  base-passwd                        3.5.44                              amd64        Debian base system master password and group files
-ii  bash                               4.4.18-2ubuntu1.2                   amd64        GNU Bourne Again SHell
+ii  bash                               4.4.18-2ubuntu1.3                   amd64        GNU Bourne Again SHell
 ii  bind9-host                         1:9.11.3+dfsg-1ubuntu1.17           amd64        DNS lookup utility (deprecated)
 ii  binutils                           2.30-21ubuntu1~18.04.7              amd64        GNU assembler, linker and binary utilities
 ii  binutils-common:amd64              2.30-21ubuntu1~18.04.7              amd64        Common files for the GNU assembler, linker and binary utilities
