@@ -1,7 +1,7 @@
 [
     {
         "title": "USN-5376-3: Git regression",
-        "release": "unreleased"
+        "release": "1.3.36"
     },
     {
         "title": "USN-5380-1: Bash vulnerability",
@@ -21,7 +21,7 @@
     },
     {
         "title": "USN-5376-1: Git vulnerability",
-        "release": "unreleased"
+        "release": "1.3.36"
     },
     {
         "title": "USN-5366-1: FriBidi vulnerabilities",
