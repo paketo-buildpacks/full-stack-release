@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5391-1: libsepol vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5376-3: Git regression",
         "release": "1.3.36"
     },
