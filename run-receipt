@@ -390,7 +390,7 @@ ii  libsnappy1v5:amd64                 1.1.7-1                             amd64
 ii  libsoxr0:amd64                     0.1.2-3                             amd64        High quality 1D sample-rate conversion library
 ii  libspeex1:amd64                    1.2~rc1.2-1ubuntu2.1                amd64        The Speex codec runtime library
 ii  libsqlite0                         2.8.17-14fakesync1                  amd64        SQLite 2 shared library
-ii  libsqlite3-0:amd64                 3.22.0-1ubuntu0.4                   amd64        SQLite 3 shared library
+ii  libsqlite3-0:amd64                 3.22.0-1ubuntu0.5                   amd64        SQLite 3 shared library
 ii  libss2:amd64                       1.44.1-1ubuntu1.3                   amd64        command-line interface parsing library
 ii  libssl1.0.0:amd64                  1.0.2n-1ubuntu5.9                   amd64        Secure Sockets Layer toolkit - shared libraries
 ii  libssl1.1:amd64                    1.1.1-1ubuntu2.1~18.04.17           amd64        Secure Sockets Layer toolkit - shared libraries
