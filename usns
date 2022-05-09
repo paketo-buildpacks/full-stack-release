@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5244-2: DBus vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5402-1: OpenSSL vulnerabilities",
         "release": "1.3.40"
     },
