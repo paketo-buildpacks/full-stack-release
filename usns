@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5412-1: curl vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5244-2: DBus vulnerability",
         "release": "1.3.42"
     },
