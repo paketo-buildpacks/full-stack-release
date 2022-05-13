@@ -620,7 +620,7 @@ ii  nplan                              0.99-0ubuntu3~18.04.5               all  
 ii  ocaml-base-nox                     4.05.0-10ubuntu1                    amd64        Runtime system for OCaml bytecode executables (no X)
 ii  odbcinst                           2.3.4-1.1ubuntu3                    amd64        Helper program for accessing odbc ini files
 ii  odbcinst1debian2:amd64             2.3.4-1.1ubuntu3                    amd64        Support library for accessing odbc ini files
-ii  openssh-client                     1:7.6p1-4ubuntu0.6                  amd64        secure shell (SSH) client, for secure access to remote machines
+ii  openssh-client                     1:7.6p1-4ubuntu0.7                  amd64        secure shell (SSH) client, for secure access to remote machines
 ii  openssl                            1.1.1-1ubuntu2.1~18.04.17           amd64        Secure Sockets Layer toolkit - cryptographic utility
 ii  openssl1.0                         1.0.2n-1ubuntu5.9                   amd64        Secure Sockets Layer toolkit 1.0 - cryptographic utility
 ii  passwd                             1:4.5-1ubuntu2.2                    amd64        change and administer password and group data
