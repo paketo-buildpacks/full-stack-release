@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5421-1: LibTIFF vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5412-1: curl vulnerabilities",
         "release": "1.3.43"
     },
