@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5425-1: PCRE vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5422-1: libxml2 vulnerabilities",
         "release": "1.3.47"
     },
