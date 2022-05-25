@@ -156,10 +156,10 @@ ii  libblkid1:amd64                    2.31.1-0.4ubuntu3.7                 amd64
 ii  libbsd0:amd64                      0.8.7-1ubuntu0.1                    amd64        utility functions from BSD systems - shared library
 ii  libbz2-1.0:amd64                   1.0.6-8.1ubuntu0.2                  amd64        high-quality block-sorting file compressor library - runtime
 ii  libbz2-dev:amd64                   1.0.6-8.1ubuntu0.2                  amd64        high-quality block-sorting file compressor library - development
-ii  libc-bin                           2.27-3ubuntu1.5                     amd64        GNU C Library: Binaries
-ii  libc-dev-bin                       2.27-3ubuntu1.5                     amd64        GNU C Library: Development binaries
-ii  libc6:amd64                        2.27-3ubuntu1.5                     amd64        GNU C Library: Shared libraries
-ii  libc6-dev:amd64                    2.27-3ubuntu1.5                     amd64        GNU C Library: Development Libraries and Header Files
+ii  libc-bin                           2.27-3ubuntu1.6                     amd64        GNU C Library: Binaries
+ii  libc-dev-bin                       2.27-3ubuntu1.6                     amd64        GNU C Library: Development binaries
+ii  libc6:amd64                        2.27-3ubuntu1.6                     amd64        GNU C Library: Shared libraries
+ii  libc6-dev:amd64                    2.27-3ubuntu1.6                     amd64        GNU C Library: Development Libraries and Header Files
 ii  libcairo-gobject2:amd64            1.15.10-2ubuntu0.1                  amd64        Cairo 2D vector graphics library (GObject library)
 ii  libcairo-script-interpreter2:amd64 1.15.10-2ubuntu0.1                  amd64        Cairo 2D vector graphics library (script interpreter)
 ii  libcairo2:amd64                    1.15.10-2ubuntu0.1                  amd64        Cairo 2D vector graphics library
@@ -429,8 +429,8 @@ ii  libpixman-1-dev:amd64              0.34.0-2                            amd64
 ii  libpng-dev:amd64                   1.6.34-1ubuntu0.18.04.2             amd64        PNG library - development (version 1.6)
 ii  libpng16-16:amd64                  1.6.34-1ubuntu0.18.04.2             amd64        PNG library - runtime (version 1.6)
 ii  libpopt0:amd64                     1.16-11                             amd64        lib for parsing cmdline parameters
-ii  libpq-dev                          10.20-0ubuntu0.18.04.1              amd64        header files for libpq5 (PostgreSQL library)
-ii  libpq5:amd64                       10.20-0ubuntu0.18.04.1              amd64        PostgreSQL C client library
+ii  libpq-dev                          10.21-0ubuntu0.18.04.1              amd64        header files for libpq5 (PostgreSQL library)
+ii  libpq5:amd64                       10.21-0ubuntu0.18.04.1              amd64        PostgreSQL C client library
 ii  libprocps6:amd64                   2:3.3.12-3ubuntu1.2                 amd64        library for accessing process information from /proc
 ii  libproxy-dev:amd64                 0.4.15-1ubuntu0.2                   amd64        automatic proxy configuration management library (devel)
 ii  libproxy1v5:amd64                  0.4.15-1ubuntu0.2                   amd64        automatic proxy configuration management library (shared)
@@ -594,7 +594,7 @@ ii  libzvbi-common                     0.2.35-13                           all  
 ii  libzvbi0:amd64                     0.2.35-13                           amd64        Vertical Blanking Interval decoder (VBI) - runtime files
 ii  linux-base                         4.5ubuntu1.7                        all          Linux image base package
 ii  linux-libc-dev:amd64               4.15.0-180.189                      amd64        Linux Kernel Headers for development
-ii  locales                            2.27-3ubuntu1.5                     all          GNU C Library: National Language (locale) data [support]
+ii  locales                            2.27-3ubuntu1.6                     all          GNU C Library: National Language (locale) data [support]
 ii  lockfile-progs                     0.1.17build1                        amd64        Programs for locking and unlocking files and mailboxes
 ii  login                              1:4.5-1ubuntu2.2                    amd64        system login tools
 ii  lsb-base                           9.20170808ubuntu1                   all          Linux Standard Base init script functionality
@@ -608,7 +608,7 @@ ii  mercurial                          4.5.3-1ubuntu2.2                    amd64
 ii  mercurial-common                   4.5.3-1ubuntu2.2                    all          easy-to-use, scalable distributed version control system (common files)
 ii  mime-support                       3.60ubuntu1                         all          MIME files 'mime.types' & 'mailcap', and support programs
 ii  mount                              2.31.1-0.4ubuntu3.7                 amd64        tools for mounting and manipulating filesystems
-ii  multiarch-support                  2.27-3ubuntu1.5                     amd64        Transitional package to ensure multiarch compatibility
+ii  multiarch-support                  2.27-3ubuntu1.6                     amd64        Transitional package to ensure multiarch compatibility
 ii  ncurses-base                       6.1-1ubuntu1.18.04                  all          basic terminal type definitions
 ii  ncurses-bin                        6.1-1ubuntu1.18.04                  amd64        terminal-related programs and man pages
 ii  net-tools                          1.60+git20161116.90da8a0-1ubuntu1   amd64        NET-3 networking toolkit
