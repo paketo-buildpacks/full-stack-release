@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5446-1: dpkg vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5445-1: Subversion vulnerabilities",
         "release": "1.3.51"
     },
