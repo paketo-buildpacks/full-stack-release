@@ -464,7 +464,7 @@ ii  libselinux1:amd64                  2.7-2build2                         amd64
 ii  libselinux1-dev:amd64              2.7-2build2                         amd64        SELinux development headers
 ii  libsemanage-common                 2.7-2build2                         all          Common files for SELinux policy management libraries
 ii  libsemanage1:amd64                 2.7-2build2                         amd64        SELinux policy management library
-ii  libsensors4:amd64                  1:3.4.0-4                           amd64        library to read temperature/voltage/fan sensors
+ii  libsensors4:amd64                  1:3.4.0-4ubuntu0.1                  amd64        library to read temperature/voltage/fan sensors
 ii  libsepol1:amd64                    2.7-1ubuntu0.1                      amd64        SELinux library for manipulating binary security policies
 ii  libsepol1-dev:amd64                2.7-1ubuntu0.1                      amd64        SELinux binary policy manipulation library and development files
 ii  libserf-1-1:amd64                  1.3.9-6                             amd64        high-performance asynchronous HTTP client library
