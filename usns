@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5456-1: ImageMagick vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5431-1: GnuPG vulnerability",
         "release": "1.3.53"
     },
