@@ -17,7 +17,7 @@ ii  binutils-x86-64-linux-gnu          2.30-21ubuntu1~18.04.7              amd64
 ii  bsdutils                           1:2.31.1-0.4ubuntu3.7               amd64        basic utilities from 4.4BSD-Lite
 ii  busybox-initramfs                  1:1.27.2-2ubuntu3.4                 amd64        Standalone shell setup for initramfs
 ii  bzip2                              1.0.6-8.1ubuntu0.2                  amd64        high-quality block-sorting file compressor - utilities
-ii  ca-certificates                    20210119~18.04.2                    all          Common CA certificates
+ii  ca-certificates                    20211016~18.04.1                    all          Common CA certificates
 ii  console-setup                      1.178ubuntu2.9                      all          console font and keymap setup program
 ii  console-setup-linux                1.178ubuntu2.9                      all          Linux specific part of console-setup
 ii  coreutils                          8.28-1ubuntu1                       amd64        GNU core utilities
@@ -116,8 +116,8 @@ ii  libaudit1:amd64                    1:2.8.2-1ubuntu1.1                  amd64
 ii  libavahi-client3:amd64             0.7-3.1ubuntu1.3                    amd64        Avahi client library
 ii  libavahi-common-data:amd64         0.7-3.1ubuntu1.3                    amd64        Avahi common data files
 ii  libavahi-common3:amd64             0.7-3.1ubuntu1.3                    amd64        Avahi common library
-ii  libavcodec57:amd64                 7:3.4.8-0ubuntu0.2                  amd64        FFmpeg library with de/encoders for audio/video codecs - runtime files
-ii  libavutil55:amd64                  7:3.4.8-0ubuntu0.2                  amd64        FFmpeg library with functions for simplifying programming - runtime files
+ii  libavcodec57:amd64                 7:3.4.11-0ubuntu0.1                 amd64        FFmpeg library with de/encoders for audio/video codecs - runtime files
+ii  libavutil55:amd64                  7:3.4.11-0ubuntu0.1                 amd64        FFmpeg library with functions for simplifying programming - runtime files
 ii  libbabeltrace1:amd64               1.5.5-1                             amd64        Babeltrace conversion libraries
 ii  libbind9-160:amd64                 1:9.11.3+dfsg-1ubuntu1.17           amd64        BIND9 Shared Library used by BIND
 ii  libbinutils:amd64                  2.30-21ubuntu1~18.04.7              amd64        GNU binary utilities (private shared library)
@@ -398,7 +398,7 @@ ii  libstdc++-6-dev:amd64              6.5.0-2ubuntu1~18.04                amd64
 ii  libstdc++6:amd64                   8.4.0-1ubuntu1~18.04                amd64        GNU Standard C++ Library v3
 ii  libsub-name-perl                   0.21-1build1                        amd64        module for assigning a new name to referenced sub
 ii  libsvn1:amd64                      1.9.7-4ubuntu1.1                    amd64        Shared libraries used by Apache Subversion
-ii  libswresample2:amd64               7:3.4.8-0ubuntu0.2                  amd64        FFmpeg library for audio resampling, rematrixing etc. - runtime files
+ii  libswresample2:amd64               7:3.4.11-0ubuntu0.1                 amd64        FFmpeg library for audio resampling, rematrixing etc. - runtime files
 ii  libsysfs2:amd64                    2.1.0+repack-4build1                amd64        interface library to sysfs
 ii  libsystemd0:amd64                  237-3ubuntu10.53                    amd64        systemd utility library
 ii  libtasn1-6:amd64                   4.13-2                              amd64        Manage ASN.1 structures (runtime)
