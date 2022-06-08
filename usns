@@ -1,5 +1,13 @@
 [
     {
+        "title": "USN-5473-1: ca-certificates update",
+        "release": "unreleased"
+    },
+    {
+        "title": "USN-5464-1: e2fsprogs vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5464-1: E2fsprogs vulnerability",
         "release": "1.3.58"
     },
