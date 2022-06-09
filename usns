@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5472-1: FFmpeg vulnerabilities",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5473-1: ca-certificates update",
         "release": "1.3.60"
     },
