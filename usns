@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5488-1: OpenSSL vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5472-1: FFmpeg vulnerabilities",
         "release": "unreleased"
     },
