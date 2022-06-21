@@ -392,8 +392,8 @@ ii  libspeex1:amd64                    1.2~rc1.2-1ubuntu2.1                amd64
 ii  libsqlite0                         2.8.17-14fakesync1                  amd64        SQLite 2 shared library
 ii  libsqlite3-0:amd64                 3.22.0-1ubuntu0.5                   amd64        SQLite 3 shared library
 ii  libss2:amd64                       1.44.1-1ubuntu1.4                   amd64        command-line interface parsing library
-ii  libssl1.0.0:amd64                  1.0.2n-1ubuntu5.9                   amd64        Secure Sockets Layer toolkit - shared libraries
-ii  libssl1.1:amd64                    1.1.1-1ubuntu2.1~18.04.17           amd64        Secure Sockets Layer toolkit - shared libraries
+ii  libssl1.0.0:amd64                  1.0.2n-1ubuntu5.10                  amd64        Secure Sockets Layer toolkit - shared libraries
+ii  libssl1.1:amd64                    1.1.1-1ubuntu2.1~18.04.19           amd64        Secure Sockets Layer toolkit - shared libraries
 ii  libstdc++-6-dev:amd64              6.5.0-2ubuntu1~18.04                amd64        GNU Standard C++ Library v3 (development files)
 ii  libstdc++6:amd64                   8.4.0-1ubuntu1~18.04                amd64        GNU Standard C++ Library v3
 ii  libsub-name-perl                   0.21-1build1                        amd64        module for assigning a new name to referenced sub
@@ -507,8 +507,8 @@ ii  ocaml-base-nox                     4.05.0-10ubuntu1                    amd64
 ii  odbcinst                           2.3.4-1.1ubuntu3                    amd64        Helper program for accessing odbc ini files
 ii  odbcinst1debian2:amd64             2.3.4-1.1ubuntu3                    amd64        Support library for accessing odbc ini files
 ii  openssh-client                     1:7.6p1-4ubuntu0.7                  amd64        secure shell (SSH) client, for secure access to remote machines
-ii  openssl                            1.1.1-1ubuntu2.1~18.04.17           amd64        Secure Sockets Layer toolkit - cryptographic utility
-ii  openssl1.0                         1.0.2n-1ubuntu5.9                   amd64        Secure Sockets Layer toolkit 1.0 - cryptographic utility
+ii  openssl                            1.1.1-1ubuntu2.1~18.04.19           amd64        Secure Sockets Layer toolkit - cryptographic utility
+ii  openssl1.0                         1.0.2n-1ubuntu5.10                  amd64        Secure Sockets Layer toolkit 1.0 - cryptographic utility
 ii  passwd                             1:4.5-1ubuntu2.2                    amd64        change and administer password and group data
 ii  patch                              2.7.6-2ubuntu1.1                    amd64        Apply a diff file to an original
 ii  perl                               5.26.1-6ubuntu0.5                   amd64        Larry Wall's Practical Extraction and Report Language
