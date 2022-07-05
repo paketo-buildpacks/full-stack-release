@@ -1,11 +1,11 @@
 [
     {
         "title": "USN-5503-1: GnuPG vulnerability",
-        "release": "unreleased"
+        "release": "1.3.68"
     },
     {
         "title": "USN-5502-1: OpenSSL vulnerability",
-        "release": "unreleased"
+        "release": "1.3.68"
     },
     {
         "title": "USN-5495-1: curl vulnerabilities",
