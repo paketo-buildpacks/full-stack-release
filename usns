@@ -1,5 +1,9 @@
 [
     {
+        "title": "USN-5519-1: Python vulnerability",
+        "release": "unreleased"
+    },
+    {
         "title": "USN-5511-1: Git vulnerabilities",
         "release": "1.3.70"
     },
